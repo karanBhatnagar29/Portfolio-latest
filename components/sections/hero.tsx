@@ -82,7 +82,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center py-20 overflow-hidden"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 -z-10">
+      {/* <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-[0.05]"></div>
         <div
           className={cn(
@@ -96,7 +96,7 @@ export default function Hero() {
             theme === "dark" ? "bg-primary/60" : "bg-primary/30"
           )}
         ></div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

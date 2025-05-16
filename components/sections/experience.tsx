@@ -21,7 +21,15 @@ const workExperience = [
       "Mentored a team of 5 junior developers, conducting code reviews and implementing best practices that improved code quality and reduced bugs by 35%",
       "Collaborated with product and design teams to create intuitive user interfaces, resulting in a 20% improvement in user satisfaction scores",
     ],
-    skills: ["React", "Next.js", "TypeScript"],
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Nest.js",
+      "Tailwind CSS",
+      "Shadcn",
+      "MongoDB",
+    ],
   },
 ];
 

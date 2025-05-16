@@ -45,33 +45,26 @@ const projects = [
   },
   {
     id: 4,
-    title: "Financial Dashboard",
+    title: "Ecommerce Full Stack",
     description:
-      "An interactive financial dashboard with real-time data visualization, portfolio management, and investment tracking.",
-    image: "/projects/financial-dashboard.png",
-    tags: ["React", "D3.js", "Node.js", "Express", "PostgreSQL", "WebSockets"],
+      "Developed a full-stack e-commerce application using NestJS for the backend and Next.js for the frontend. Implemented features like authentication, product management, cart functionality, and order processing with responsive UI.",
+    image: "/projects/ecom.jpg",
+    tags: ["Nest.js", "Next.js", "MongoDb", "Tailwind"],
 
-    demo: "https://example.com",
-    category: "frontend",
+    demo: "https://github.com/karanBhatnagar29/Ecommerce-Full-Stack",
+    category: "fullstack",
     featured: false,
   },
   {
     id: 5,
-    title: "Healthcare API",
+    title: "Whatsapp Clone",
     description:
-      "A secure API for healthcare providers with patient management, appointment scheduling, and medical record access.",
-    image: "/projects/healthcare-api.png",
-    tags: [
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "JWT",
-      "HIPAA Compliance",
-      "GraphQL",
-    ],
+      "I developed a WhatsApp clone using Jetpack Compose and Kotlin, focusing on replicating modern UI patterns and smooth user experience",
+    image: "/projects/whatsapp_clone.jpeg",
+    tags: ["Android", "jetpack compose", "kotlin "],
 
-    demo: "https://example.com",
-    category: "backend",
+    demo: "https://github.com/karanBhatnagar29/Whatsapp-Clone",
+    category: "fullstack",
     featured: false,
   },
   {
