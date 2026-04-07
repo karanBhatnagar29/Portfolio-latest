@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Code2, Server, Wrench, Smartphone } from "lucide-react"
+import { motion } from "framer-motion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Code2, Server, Wrench, Smartphone } from "lucide-react";
 
 const frontendSkills = [
   { name: "HTML5/CSS3", level: 95, icon: "html" },
@@ -17,7 +17,7 @@ const frontendSkills = [
   { name: "shadcn/ui", level: 88, icon: "shadcn" },
   { name: "Redux", level: 82, icon: "redux" },
   { name: "Bun.js", level: 78, icon: "bun" },
-]
+];
 
 const backendSkills = [
   { name: "NestJS", level: 90, icon: "nestjs" },
@@ -28,7 +28,7 @@ const backendSkills = [
   { name: "REST API", level: 94, icon: "api" },
   { name: "AWS EC2", level: 75, icon: "aws" },
   { name: "CI/CD Pipelines", level: 78, icon: "cicd" },
-]
+];
 
 const mobileSkills = [
   { name: "React Native", level: 85, icon: "reactnative" },
@@ -37,7 +37,7 @@ const mobileSkills = [
   { name: "Push Notifications", level: 75, icon: "notifications" },
   { name: "AsyncStorage", level: 78, icon: "storage" },
   { name: "Android Build & Deploy", level: 72, icon: "android" },
-]
+];
 
 const aiDevOpsSkills = [
   { name: "AI-Assisted Development", level: 92, icon: "ai" },
@@ -46,7 +46,7 @@ const aiDevOpsSkills = [
   { name: "CI/CD Pipelines", level: 78, icon: "cicd" },
   { name: "Git / GitHub", level: 90, icon: "git" },
   { name: "Docker", level: 68, icon: "docker" },
-]
+];
 
 export default function Skills() {
   return (
@@ -66,30 +66,48 @@ export default function Skills() {
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-sm border-primary/20 bg-primary/5">
+          <Badge
+            variant="outline"
+            className="mb-4 px-3 py-1 text-sm border-primary/20 bg-primary/5"
+          >
             My Skills
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Technical Expertise</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+            Technical Expertise
+          </h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            With expertise across multiple technologies and disciplines, I bring a comprehensive skill set to every
-            project, ensuring high-quality, innovative solutions.
+            With expertise across multiple technologies and disciplines, I bring
+            a comprehensive skill set to every project, ensuring high-quality,
+            innovative solutions.
           </p>
         </motion.div>
 
         <Tabs defaultValue="frontend" className="w-full max-w-5xl mx-auto">
           <div className="flex justify-center mb-8">
             <TabsList className="grid grid-cols-2 md:grid-cols-4 h-auto p-1">
-              <TabsTrigger value="frontend" className="flex items-center gap-2 py-3">
+              <TabsTrigger
+                value="frontend"
+                className="flex items-center gap-2 py-3"
+              >
                 <Code2 className="h-4 w-4" /> Frontend
               </TabsTrigger>
-              <TabsTrigger value="backend" className="flex items-center gap-2 py-3">
+              <TabsTrigger
+                value="backend"
+                className="flex items-center gap-2 py-3"
+              >
                 <Server className="h-4 w-4" /> Backend
               </TabsTrigger>
-              <TabsTrigger value="mobile" className="flex items-center gap-2 py-3">
+              <TabsTrigger
+                value="mobile"
+                className="flex items-center gap-2 py-3"
+              >
                 <Smartphone className="h-4 w-4" /> Mobile
               </TabsTrigger>
-              <TabsTrigger value="aidevops" className="flex items-center gap-2 py-3">
+              <TabsTrigger
+                value="aidevops"
+                className="flex items-center gap-2 py-3"
+              >
                 <Wrench className="h-4 w-4" /> AI & DevOps
               </TabsTrigger>
             </TabsList>
@@ -265,5 +283,5 @@ export default function Skills() {
         </Tabs>
       </div>
     </section>
-  )
+  );
 }

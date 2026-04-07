@@ -13,7 +13,8 @@ const projects = [
     title: "ZestyCrops – Spices E-Commerce",
     description:
       "A full-stack e-commerce platform for premium spices. Built with Next.js and NestJS, featuring product listings, cart, secure checkout, order management, and an admin dashboard. Deployed on AWS EC2 with CI/CD pipelines.",
-    image: "https://res.cloudinary.com/dkln9vlws/image/upload/v1771144910/banners/j8eoj8wnfunwhfjwzwuw.png",
+    image:
+      "https://res.cloudinary.com/dkln9vlws/image/upload/v1771144910/banners/j8eoj8wnfunwhfjwzwuw.png",
     tags: ["Next.js", "NestJS", "AWS EC2", "CI/CD", "PostgreSQL"],
     demo: "https://www.zestycrops.com/",
     github: "",
@@ -70,8 +71,6 @@ export default function Projects() {
             development, from responsive frontends to scalable backend systems.
           </p>
         </motion.div>
-
-
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
@@ -170,7 +169,9 @@ export default function Projects() {
                       </a>
                     </Button>
                   ) : (
-                    <span className="ml-auto text-sm text-muted-foreground italic">Android APK</span>
+                    <span className="ml-auto text-sm text-muted-foreground italic">
+                      Android APK
+                    </span>
                   )}
                 </CardFooter>
               </Card>

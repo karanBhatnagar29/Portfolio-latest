@@ -60,7 +60,9 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 }
 
@@ -128,25 +130,39 @@ h6 {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, hsl(var(--primary) / 0.6), hsl(191 91% 55% / 0.4));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary) / 0.6),
+    hsl(191 91% 55% / 0.4)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
 
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
 .dark .card-hover:hover {
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.3),
+    0 8px 10px -6px rgba(0, 0, 0, 0.2);
 }
 
 /* Smooth scrolling */
@@ -157,16 +173,25 @@ html {
 
 /* Gradient backgrounds */
 .gradient-bg {
-  background: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--background)) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary) / 0.1) 0%,
+    hsl(var(--background)) 100%
+  );
 }
 
 .dark .gradient-bg {
-  background: linear-gradient(135deg, hsl(var(--primary) / 0.2) 0%, hsl(var(--background)) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary) / 0.2) 0%,
+    hsl(var(--background)) 100%
+  );
 }
 
 /* Grid pattern background */
 .bg-grid-pattern {
-  background-image: linear-gradient(to right, hsl(var(--primary) / 0.2) 1px, transparent 1px),
+  background-image:
+    linear-gradient(to right, hsl(var(--primary) / 0.2) 1px, transparent 1px),
     linear-gradient(to bottom, hsl(var(--primary) / 0.2) 1px, transparent 1px);
   background-size: 20px 20px;
 }

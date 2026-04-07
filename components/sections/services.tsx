@@ -1,9 +1,17 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
-import { BrainCircuit, Code2, Smartphone, Server, Cloud, Database, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import {
+  BrainCircuit,
+  Code2,
+  Smartphone,
+  Server,
+  Cloud,
+  Database,
+  ArrowRight,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
@@ -18,7 +26,13 @@ const services = [
     title: "Web App Development",
     description:
       "Building fast, responsive, and scalable web applications using React and Next.js — with Tailwind CSS and shadcn/ui for clean, accessible design systems.",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+    ],
   },
   {
     icon: <Smartphone className="h-10 w-10" />,
@@ -48,7 +62,7 @@ const services = [
       "Designing and optimising database schemas and queries across relational and NoSQL databases — picking the right tool for each project's scale and needs.",
     technologies: ["PostgreSQL", "MongoDB", "Supabase", "Database Design"],
   },
-]
+];
 
 export default function Services() {
   const containerVariants = {
@@ -59,15 +73,18 @@ export default function Services() {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
+  };
 
   return (
-    <section id="services" className="py-24 bg-muted/30 relative overflow-hidden">
+    <section
+      id="services"
+      className="py-24 bg-muted/30 relative overflow-hidden"
+    >
       {/* Background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-[0.05]"></div>
@@ -81,13 +98,20 @@ export default function Services() {
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-sm border-primary/20 bg-primary/5">
+          <Badge
+            variant="outline"
+            className="mb-4 px-3 py-1 text-sm border-primary/20 bg-primary/5"
+          >
             My Services
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">What I Can Do For You</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+            What I Can Do For You
+          </h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            I offer end-to-end development services, from building clean UI interfaces to crafting powerful backends and native mobile apps, with a strong focus on modern technologies and maintainability.
+            I offer end-to-end development services, from building clean UI
+            interfaces to crafting powerful backends and native mobile apps,
+            with a strong focus on modern technologies and maintainability.
           </p>
         </motion.div>
 
@@ -108,7 +132,9 @@ export default function Services() {
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className="text-muted-foreground mb-6">{service.description}</p>
+              <p className="text-muted-foreground mb-6">
+                {service.description}
+              </p>
               <div className="flex flex-wrap gap-2 mb-6">
                 {service.technologies.map((tech, i) => (
                   <Badge key={i} variant="secondary" className="bg-muted/50">
@@ -125,5 +151,5 @@ export default function Services() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

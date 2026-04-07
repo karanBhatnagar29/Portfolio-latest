@@ -18,7 +18,7 @@ export default function About() {
   const scale = useTransform(
     scrollYProgress,
     [0, 0.2, 0.9, 1],
-    [0.8, 1, 1, 0.8]
+    [0.8, 1, 1, 0.8],
   );
 
   return (
@@ -102,17 +102,22 @@ export default function About() {
             </h3>
 
             <p className="text-muted-foreground mb-4">
-              I'm a Full Stack Developer with <strong className="text-foreground">3+ years of experience</strong> building
-              production-grade web and mobile applications. I work across the
-              entire stack — React, Next.js, NestJS, React Native, PostgreSQL,
-              MongoDB, and Supabase — and deploy on AWS EC2 with fully automated
-              CI/CD pipelines.
+              I'm a Full Stack Developer with{" "}
+              <strong className="text-foreground">
+                3+ years of experience
+              </strong>{" "}
+              building production-grade web and mobile applications. I work
+              across the entire stack — React, Next.js, NestJS, React Native,
+              PostgreSQL, MongoDB, and Supabase — and deploy on AWS EC2 with
+              fully automated CI/CD pipelines.
             </p>
 
             <p className="text-muted-foreground mb-4">
-              <strong className="text-primary text-base">I actively use AI to build full stack projects</strong> —
-              from architecting systems and generating production-ready code to
-              debugging, optimising performance, and shipping faster than
+              <strong className="text-primary text-base">
+                I actively use AI to build full stack projects
+              </strong>{" "}
+              — from architecting systems and generating production-ready code
+              to debugging, optimising performance, and shipping faster than
               traditional workflows allow. AI isn't a shortcut for me; it's a
               force multiplier that lets me deliver higher quality work in less
               time.
@@ -146,10 +151,12 @@ export default function About() {
                 </p>
               </div>
               <div className="bg-muted/30 p-4 rounded-lg border border-primary/30">
-                <h4 className="font-semibold mb-2 text-primary">AI-Driven Development</h4>
+                <h4 className="font-semibold mb-2 text-primary">
+                  AI-Driven Development
+                </h4>
                 <p className="text-sm text-muted-foreground">
-                  Using AI tools to build, optimise and ship full stack
-                  projects faster
+                  Using AI tools to build, optimise and ship full stack projects
+                  faster
                 </p>
               </div>
             </div>
