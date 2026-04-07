@@ -76,7 +76,7 @@ export default function About() {
               {/* Floating Experience Badge */}
               <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-primary/30 rounded-xl px-4 py-3 shadow-md flex items-center gap-3">
                 <div className="bg-primary/10 p-3 rounded-full">
-                  <span className="text-primary font-bold text-lg">2+</span>
+                  <span className="text-primary font-bold text-lg">3+</span>
                 </div>
                 <div className="text-left">
                   <p className="text-xs text-muted-foreground">Years of</p>
@@ -101,50 +101,55 @@ export default function About() {
               Transforming Ideas into Exceptional Digital Solutions
             </h3>
 
-            <p className="text-muted-foreground mb-6">
-              I am a dedicated full stack developer with expertise across the
-              entire tech stack. On the frontend, I build responsive and
-              accessible interfaces using React, JavaScript, and Next.js —
-              enhanced with Tailwind CSS and shadcn/ui for clean design systems
-              and rapid UI development. On the backend, I develop scalable APIs
-              and services using NestJS. I also create modern Android
-              applications using Jetpack Compose to deliver smooth, native
-              mobile experiences.
+            <p className="text-muted-foreground mb-4">
+              I'm a Full Stack Developer with <strong className="text-foreground">3+ years of experience</strong> building
+              production-grade web and mobile applications. I work across the
+              entire stack — React, Next.js, NestJS, React Native, PostgreSQL,
+              MongoDB, and Supabase — and deploy on AWS EC2 with fully automated
+              CI/CD pipelines.
+            </p>
+
+            <p className="text-muted-foreground mb-4">
+              <strong className="text-primary text-base">I actively use AI to build full stack projects</strong> —
+              from architecting systems and generating production-ready code to
+              debugging, optimising performance, and shipping faster than
+              traditional workflows allow. AI isn't a shortcut for me; it's a
+              force multiplier that lets me deliver higher quality work in less
+              time.
             </p>
 
             <p className="text-muted-foreground mb-8">
-              I thrive on transforming ideas into polished digital products. My
-              development approach blends functionality with visual appeal,
-              ensuring that every interface not only works flawlessly but also
-              feels intuitive. I'm passionate about writing clean, maintainable
-              code and staying up to date with modern tooling and best practices
-              across both frontend and backend development.
+              I'm passionate about clean, maintainable code and intuitive
+              interfaces. Whether it's a cross-platform mobile app or a
+              cloud-deployed web platform, I focus on turning ideas into
+              polished digital products that work flawlessly and look great.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="bg-muted/30 p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">Frontend Development</h4>
                 <p className="text-sm text-muted-foreground">
-                  Creating responsive, accessible, and performant user
-                  interfaces
+                  React, Next.js, Tailwind CSS, TypeScript — responsive and
+                  accessible interfaces
                 </p>
               </div>
               <div className="bg-muted/30 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">Backend Development</h4>
+                <h4 className="font-semibold mb-2">Backend &amp; Cloud</h4>
                 <p className="text-sm text-muted-foreground">
-                  Building robust APIs and server-side applications
+                  NestJS, PostgreSQL, MongoDB, Supabase, AWS EC2, CI/CD
                 </p>
               </div>
               <div className="bg-muted/30 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">UI/UX Design</h4>
+                <h4 className="font-semibold mb-2">React Native Apps</h4>
                 <p className="text-sm text-muted-foreground">
-                  Designing intuitive and engaging user experiences
+                  Cross-platform iOS &amp; Android mobile app development
                 </p>
               </div>
-              <div className="bg-muted/30 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">Technical Consulting</h4>
+              <div className="bg-muted/30 p-4 rounded-lg border border-primary/30">
+                <h4 className="font-semibold mb-2 text-primary">AI-Driven Development</h4>
                 <p className="text-sm text-muted-foreground">
-                  Providing expert guidance on technology decisions
+                  Using AI tools to build, optimise and ship full stack
+                  projects faster
                 </p>
               </div>
             </div>

@@ -2,51 +2,51 @@
 
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
-import { Code, Smartphone, PenTool, Database, LineChart, Globe, ArrowRight } from "lucide-react"
+import { BrainCircuit, Code2, Smartphone, Server, Cloud, Database, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const services = [
   {
-    icon: <Code className="h-10 w-10" />,
-    title: "Frontend Development",
+    icon: <BrainCircuit className="h-10 w-10" />,
+    title: "AI-Powered Full Stack Development",
     description:
-      "Crafting responsive and modern web interfaces using React, Next.js, Tailwind CSS, and shadcn/ui for sleek, scalable designs.",
-    technologies: ["React", "Next.js", "JavaScript", "Tailwind CSS", "shadcn/ui"],
+      "I use cutting-edge AI tools to architect, build, and ship complete web and mobile products — delivering higher quality at a faster pace than traditional workflows.",
+    technologies: ["ChatGPT", "GitHub Copilot", "Cursor", "AI Code Generation"],
   },
   {
-    icon: <Database className="h-10 w-10" />,
-    title: "Backend Development",
+    icon: <Code2 className="h-10 w-10" />,
+    title: "Web App Development",
     description:
-      "Building robust backend systems and APIs using NestJS for scalable and secure application logic.",
-    technologies: ["NestJS", "TypeScript", "REST APIs"],
+      "Building fast, responsive, and scalable web applications using React and Next.js — with Tailwind CSS and shadcn/ui for clean, accessible design systems.",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
   },
   {
     icon: <Smartphone className="h-10 w-10" />,
-    title: "Android Development",
+    title: "React Native Mobile Apps",
     description:
-      "Developing modern Android apps using Jetpack Compose for fast, declarative UI and smooth native performance.",
-    technologies: ["Jetpack Compose", "Kotlin"],
+      "Developing cross-platform iOS & Android apps with React Native and Expo — featuring real-time feeds, push notifications, and seamless performance.",
+    technologies: ["React Native", "Expo", "TypeScript", "Supabase"],
   },
   {
-    icon: <PenTool className="h-10 w-10" />,
-    title: "UI/UX Implementation",
+    icon: <Server className="h-10 w-10" />,
+    title: "Backend & API Development",
     description:
-      "Translating design systems into intuitive, accessible interfaces while collaborating closely with designers.",
-    technologies: ["Figma", "Tailwind CSS", "shadcn/ui"],
+      "Building robust, secure RESTful APIs and server-side services using NestJS and Node.js — structured for scale and easy to maintain.",
+    technologies: ["NestJS", "Node.js", "REST APIs", "Bun.js", "TypeScript"],
   },
   {
-    icon: <LineChart className="h-10 w-10" />,
-    title: "Performance Optimization",
+    icon: <Cloud className="h-10 w-10" />,
+    title: "Cloud & DevOps",
     description:
-      "Improving performance and user experience through code audits, lazy loading, and efficient rendering strategies.",
-    technologies: ["Lighthouse", "Web Vitals", "Code Splitting"],
+      "Deploying and managing applications on AWS EC2 with automated CI/CD pipelines — ensuring reliable, zero-downtime releases and production-grade infrastructure.",
+    technologies: ["AWS EC2", "CI/CD", "GitHub Actions", "Docker"],
   },
   {
-    icon: <Globe className="h-10 w-10" />,
-    title: "Technical Consulting",
+    icon: <Database className="h-10 w-10" />,
+    title: "Database Architecture",
     description:
-      "Advising on architecture, tech stack decisions, and scaling strategies based on real-world development experience.",
-    technologies: ["System Design", "Best Practices", "Architecture"],
+      "Designing and optimising database schemas and queries across relational and NoSQL databases — picking the right tool for each project's scale and needs.",
+    technologies: ["PostgreSQL", "MongoDB", "Supabase", "Database Design"],
   },
 ]
 

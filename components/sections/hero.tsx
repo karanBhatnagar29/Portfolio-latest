@@ -18,10 +18,10 @@ export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const phrases = [
-    "Full Stack Developer",
-    "UI/UX Designer",
+    "AI Full Stack Developer",
+    "React Native Developer",
+    "Cloud & DevOps Engineer",
     "Problem Solver",
-    "Tech Enthusiast",
   ];
   const typingSpeed = 100;
   const deletingSpeed = 50;
@@ -60,7 +60,7 @@ export default function Hero() {
 
     const timeout = setTimeout(
       handleTyping,
-      isDeleting ? deletingSpeed : isPaused ? pauseDuration : typingSpeed
+      isDeleting ? deletingSpeed : isPaused ? pauseDuration : typingSpeed,
     );
 
     return () => {
@@ -145,9 +145,9 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.7 }}
             >
-              I craft exceptional digital experiences with modern technologies.
-              Focused on creating innovative, user-centered solutions that drive
-              results.
+              AI-powered Full Stack Developer with 3+ years of experience. I
+              leverage cutting-edge AI tools to architect and ship complete web
+              & mobile products — faster, smarter, and at scale.
             </motion.p>
 
             <motion.div
@@ -223,7 +223,7 @@ export default function Hero() {
                 transition={{ delay: 1, duration: 0.5 }}
               >
                 <div className="rounded-lg bg-primary/10 px-4 py-2 text-primary">
-                  <p className="font-medium">2+ Years Experience</p>
+                  <p className="font-medium">3+ Years Experience</p>
                 </div>
               </motion.div>
 

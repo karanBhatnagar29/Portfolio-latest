@@ -9,94 +9,48 @@ import { Github, ExternalLink, ArrowRight } from "lucide-react";
 
 const projects = [
   {
-    id: 1,
-    title: "Admin Panel Dashboard",
+    id: 10,
+    title: "ZestyCrops – Spices E-Commerce",
     description:
-      "Built an admin panel for a live streaming app to manage users, content, and real-time analytics.Included features like stream moderation, gift/sticker management, and performance monitoring.",
-    image: "/projects/project-management.png",
-    tags: ["Next.js", "ShadCn", "Tailwind CSS", "mongoDB"],
-    demo: "https://admin.workuplift.com/",
+      "A full-stack e-commerce platform for premium spices. Built with Next.js and NestJS, featuring product listings, cart, secure checkout, order management, and an admin dashboard. Deployed on AWS EC2 with CI/CD pipelines.",
+    image: "https://res.cloudinary.com/dkln9vlws/image/upload/v1771144910/banners/j8eoj8wnfunwhfjwzwuw.png",
+    tags: ["Next.js", "NestJS", "AWS EC2", "CI/CD", "PostgreSQL"],
+    demo: "https://www.zestycrops.com/",
+    github: "",
     category: "fullstack",
     featured: true,
+    platform: "",
   },
   {
-    id: 2,
-    title: "Agency Management Dashboard",
+    id: 11,
+    title: "MegaRail – Western Railways ID Card Generator",
     description:
-      "Designed an agency panel dashboard to manage influencers, campaigns, and earnings.Included real-time analytics, approval workflows, and performance tracking tools.",
-    image: "/projects/project-management.png",
-    tags: ["React", "Firebase", "Tailwind CSS", "Redux", "Real-time Database"],
-
-    demo: "https://agency.salsayou.app/",
-    category: "frontend",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "Portfolio for myself",
-    description:
-      "Designed and developed my first personal portfolio using React.Showcased projects, skills, and an interactive UI with smooth navigation.",
-    image: "/projects/portfolio.png",
-    tags: ["React.js", "Google Maps API", "Chart.js"],
-
-    demo: "https://karanbhatnagar.netlify.app/",
-    category: "frontend",
-    featured: true,
-  },
-  {
-    id: 4,
-    title: "Ecommerce Full Stack",
-    description:
-      "Developed a full-stack e-commerce application using NestJS for the backend and Next.js for the frontend. Implemented features like authentication, product management, cart functionality, and order processing with responsive UI.",
-    image: "/projects/ecom.jpg",
-    tags: ["Nest.js", "Next.js", "MongoDb", "Tailwind"],
-
-    demo: "https://github.com/karanBhatnagar29/Ecommerce-Full-Stack",
+      "An employee ID card generator built for Western Railways. Allows bulk generation and printing of official ID cards with custom data, QR codes, and branded templates. Deployed on Vercel.",
+    image: "https://image.thum.io/get/width/1200/https://megarail.vercel.app/",
+    tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    demo: "https://megarail.vercel.app/",
+    github: "",
     category: "fullstack",
-    featured: false,
+    featured: true,
+    platform: "",
   },
   {
-    id: 5,
-    title: "Whatsapp Clone",
+    id: 12,
+    title: "Social – React Native App",
     description:
-      "I developed a WhatsApp clone using Jetpack Compose and Kotlin, focusing on replicating modern UI patterns and smooth user experience",
-    image: "/projects/whatsapp_clone.jpeg",
-    tags: ["Android", "jetpack compose", "kotlin "],
-
-    demo: "https://github.com/karanBhatnagar29/Whatsapp-Clone",
+      "A feature-rich social networking mobile app built with React Native. Includes user profiles, posts, real-time feed, likes/comments, follow system, and push notifications. Available on Android.",
+    image: "https://reactnative.dev/img/header_logo.svg",
+    tags: ["React Native", "Supabase", "Expo", "TypeScript"],
+    demo: "",
+    github: "",
     category: "fullstack",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "Corporate Portfolio",
-    description:
-      "A professional portfolio website for a corporate client with custom animations, content management, and analytics integration.",
-    image: "/projects/corporate-portfolio.png",
-    tags: [
-      "React",
-      "Next.js",
-      "Framer Motion",
-      "Contentful CMS",
-      "Google Analytics",
-    ],
-
-    demo: "https://example.com",
-    category: "frontend",
-    featured: false,
+    featured: true,
+    platform: "mobile",
   },
 ];
 
 export default function Projects() {
-  const [filter, setFilter] = useState("all");
   const [hoveredId, setHoveredId] = useState<number | null>(null);
-
-  const filteredProjects =
-    filter === "all"
-      ? projects
-      : filter === "featured"
-      ? projects.filter((project) => project.featured)
-      : projects.filter((project) => project.category === filter);
 
   return (
     <section id="projects" className="py-24">
@@ -117,46 +71,10 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div className="flex justify-center mb-12 flex-wrap gap-2">
-          <Button
-            variant={filter === "all" ? "default" : "outline"}
-            onClick={() => setFilter("all")}
-            className="rounded-full"
-          >
-            All Projects
-          </Button>
-          <Button
-            variant={filter === "featured" ? "default" : "outline"}
-            onClick={() => setFilter("featured")}
-            className="rounded-full"
-          >
-            Featured
-          </Button>
-          <Button
-            variant={filter === "frontend" ? "default" : "outline"}
-            onClick={() => setFilter("frontend")}
-            className="rounded-full"
-          >
-            Frontend
-          </Button>
-          <Button
-            variant={filter === "backend" ? "default" : "outline"}
-            onClick={() => setFilter("backend")}
-            className="rounded-full"
-          >
-            Backend
-          </Button>
-          <Button
-            variant={filter === "fullstack" ? "default" : "outline"}
-            onClick={() => setFilter("fullstack")}
-            className="rounded-full"
-          >
-            Full Stack
-          </Button>
-        </div>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
@@ -169,32 +87,46 @@ export default function Projects() {
             >
               <Card className="overflow-hidden h-full flex flex-col border bg-card">
                 <div className="relative overflow-hidden h-48 group">
-                  <img
-                    src={
-                      project.image ||
-                      `/placeholder.svg?height=300&width=500&query=${project.title}`
-                    }
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                  {project.platform === "mobile" ? (
+                    <div className="w-full h-full flex items-center justify-center bg-[#20232a]">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-24 w-24 object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                     <div className="p-4 w-full">
                       <div className="flex justify-between items-center">
-                        <Button size="sm" asChild>
-                          <a
-                            href={project.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <ExternalLink className="mr-2 h-4 w-4" /> Demo
-                          </a>
-                        </Button>
+                        {project.demo && (
+                          <Button size="sm" asChild>
+                            <a
+                              href={project.demo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink className="mr-2 h-4 w-4" /> Demo
+                            </a>
+                          </Button>
+                        )}
                       </div>
                     </div>
                   </div>
                   {project.featured && (
                     <Badge className="absolute top-2 right-2 bg-primary text-primary-foreground">
                       Featured
+                    </Badge>
+                  )}
+                  {(project as any).platform === "mobile" && (
+                    <Badge className="absolute top-2 left-2 bg-blue-600 text-white">
+                      Mobile App
                     </Badge>
                   )}
                 </div>
@@ -221,21 +153,25 @@ export default function Projects() {
                   </div>
                 </CardContent>
                 <CardFooter className="p-6 pt-0">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="ml-auto group"
-                    asChild
-                  >
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {project.demo ? (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="ml-auto group"
+                      asChild
                     >
-                      View Project
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </a>
-                  </Button>
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Project
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </a>
+                    </Button>
+                  ) : (
+                    <span className="ml-auto text-sm text-muted-foreground italic">Android APK</span>
+                  )}
                 </CardFooter>
               </Card>
             </motion.div>

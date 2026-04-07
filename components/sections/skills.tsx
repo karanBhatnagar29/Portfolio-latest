@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Code2, Server, Wrench, PenTool } from "lucide-react"
+import { Code2, Server, Wrench, Smartphone } from "lucide-react"
 
 const frontendSkills = [
   { name: "HTML5/CSS3", level: 95, icon: "html" },
@@ -12,37 +12,40 @@ const frontendSkills = [
   { name: "TypeScript", level: 90, icon: "typescript" },
   { name: "React", level: 92, icon: "react" },
   { name: "Next.js", level: 90, icon: "nextjs" },
+  { name: "React Native", level: 85, icon: "reactnative" },
   { name: "Tailwind CSS", level: 90, icon: "tailwind" },
   { name: "shadcn/ui", level: 88, icon: "shadcn" },
   { name: "Redux", level: 82, icon: "redux" },
-  { name: "Vue.js", level: 70, icon: "vue" },
+  { name: "Bun.js", level: 78, icon: "bun" },
 ]
 
 const backendSkills = [
   { name: "NestJS", level: 90, icon: "nestjs" },
+  { name: "Node.js", level: 88, icon: "nodejs" },
   { name: "MongoDB", level: 80, icon: "mongodb" },
   { name: "PostgreSQL", level: 78, icon: "postgresql" },
-  { name: "GraphQL", level: 75, icon: "graphql" },
+  { name: "Supabase", level: 80, icon: "supabase" },
   { name: "REST API", level: 94, icon: "api" },
+  { name: "AWS EC2", level: 75, icon: "aws" },
+  { name: "CI/CD Pipelines", level: 78, icon: "cicd" },
 ]
 
-const designSkills = [
-  { name: "Figma", level: 85, icon: "figma" },
-  { name: "UI Design", level: 88, icon: "ui" },
-  { name: "UX Research", level: 82, icon: "ux" },
-  { name: "Wireframing", level: 90, icon: "wireframe" },
-  { name: "Prototyping", level: 85, icon: "prototype" },
-  { name: "Design Systems", level: 78, icon: "design-system" },
-  { name: "Accessibility", level: 85, icon: "accessibility" },
+const mobileSkills = [
+  { name: "React Native", level: 85, icon: "reactnative" },
+  { name: "Expo", level: 80, icon: "expo" },
+  { name: "React Navigation", level: 82, icon: "navigation" },
+  { name: "Push Notifications", level: 75, icon: "notifications" },
+  { name: "AsyncStorage", level: 78, icon: "storage" },
+  { name: "Android Build & Deploy", level: 72, icon: "android" },
 ]
 
-const otherSkills = [
-  { name: "Git/GitHub", level: 90, icon: "git" },
-  { name: "Testing", level: 78, icon: "testing" },
-  { name: "Jetpack Compose", level: 85, icon: "jetpack" },
-  { name: "Performance Optimization", level: 82, icon: "performance" },
-  { name: "SEO", level: 75, icon: "seo" },
-  { name: "Technical Writing", level: 80, icon: "writing" },
+const aiDevOpsSkills = [
+  { name: "AI-Assisted Development", level: 92, icon: "ai" },
+  { name: "Prompt Engineering", level: 88, icon: "prompt" },
+  { name: "AWS EC2", level: 75, icon: "aws" },
+  { name: "CI/CD Pipelines", level: 78, icon: "cicd" },
+  { name: "Git / GitHub", level: 90, icon: "git" },
+  { name: "Docker", level: 68, icon: "docker" },
 ]
 
 export default function Skills() {
@@ -83,11 +86,11 @@ export default function Skills() {
               <TabsTrigger value="backend" className="flex items-center gap-2 py-3">
                 <Server className="h-4 w-4" /> Backend
               </TabsTrigger>
-              <TabsTrigger value="design" className="flex items-center gap-2 py-3">
-                <PenTool className="h-4 w-4" /> Design
+              <TabsTrigger value="mobile" className="flex items-center gap-2 py-3">
+                <Smartphone className="h-4 w-4" /> Mobile
               </TabsTrigger>
-              <TabsTrigger value="other" className="flex items-center gap-2 py-3">
-                <Wrench className="h-4 w-4" /> Other
+              <TabsTrigger value="aidevops" className="flex items-center gap-2 py-3">
+                <Wrench className="h-4 w-4" /> AI & DevOps
               </TabsTrigger>
             </TabsList>
           </div>
@@ -186,11 +189,11 @@ export default function Skills() {
             </Card>
           </TabsContent>
 
-          <TabsContent value="design">
+          <TabsContent value="mobile">
             <Card className="border-none shadow-lg">
               <CardContent className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {designSkills.map((skill, index) => (
+                  {mobileSkills.map((skill, index) => (
                     <motion.div
                       key={skill.name}
                       initial={{ opacity: 0, y: 10 }}
@@ -201,16 +204,6 @@ export default function Skills() {
                     >
                       <div className="flex justify-between mb-2">
                         <div className="flex items-center gap-2">
-                          {/* <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center text-primary">
-                            <img
-                              src={`/icons/${skill.icon}.svg`}
-                              alt={skill.name}
-                              className="w-5 h-5"
-                              onError={(e) => {
-                                ;(e.target as HTMLImageElement).src = "/icons/pen-tool.svg"
-                              }}
-                            />
-                          </div> */}
                           <span className="font-medium">{skill.name}</span>
                         </div>
                         <span className="text-muted-foreground group-hover:text-primary transition-colors">
@@ -233,11 +226,11 @@ export default function Skills() {
             </Card>
           </TabsContent>
 
-          <TabsContent value="other">
+          <TabsContent value="aidevops">
             <Card className="border-none shadow-lg">
               <CardContent className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {otherSkills.map((skill, index) => (
+                  {aiDevOpsSkills.map((skill, index) => (
                     <motion.div
                       key={skill.name}
                       initial={{ opacity: 0, y: 10 }}
@@ -248,16 +241,6 @@ export default function Skills() {
                     >
                       <div className="flex justify-between mb-2">
                         <div className="flex items-center gap-2">
-                          {/* <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center text-primary">
-                            <img
-                              src={`/icons/${skill.icon}.svg`}
-                              alt={skill.name}
-                              className="w-5 h-5"
-                              onError={(e) => {
-                                ;(e.target as HTMLImageElement).src = "/icons/wrench.svg"
-                              }}
-                            />
-                          </div> */}
                           <span className="font-medium">{skill.name}</span>
                         </div>
                         <span className="text-muted-foreground group-hover:text-primary transition-colors">
