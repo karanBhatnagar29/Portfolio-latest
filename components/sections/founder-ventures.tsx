@@ -43,15 +43,15 @@ const juntoAdvantages = [
 
 export default function FounderVentures() {
   return (
-    <section id="ventures" className="py-10 md:py-16">
+    <section id="ventures" className="py-8 md:py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55 }}
         viewport={{ once: true }}
-        className="relative overflow-hidden rounded-[2rem] border border-amber-500/20 bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.18),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.12),_transparent_30%),linear-gradient(140deg,_rgba(255,255,255,0.98),_rgba(255,251,235,0.96))] p-4 shadow-[0_30px_100px_-45px_rgba(245,158,11,0.55)] dark:bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.16),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.1),_transparent_30%),linear-gradient(140deg,_rgba(11,15,24,0.98),_rgba(24,20,10,0.92))]"
+        className="relative overflow-hidden rounded-[1.6rem] border border-amber-500/20 bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.18),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.12),_transparent_30%),linear-gradient(140deg,_rgba(255,255,255,0.98),_rgba(255,251,235,0.96))] p-3 shadow-[0_30px_100px_-45px_rgba(245,158,11,0.55)] md:rounded-[2rem] md:p-4 dark:bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.16),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.1),_transparent_30%),linear-gradient(140deg,_rgba(11,15,24,0.98),_rgba(24,20,10,0.92))]"
       >
-        <div className="grid gap-8 rounded-[1.5rem] border border-white/40 bg-background/70 p-6 backdrop-blur md:p-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-6 rounded-[1.25rem] border border-white/40 bg-background/70 p-4 backdrop-blur sm:p-5 md:gap-8 md:rounded-[1.5rem] md:p-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="flex flex-col justify-between gap-8">
             <div>
               <div className="flex flex-wrap items-center gap-3">
@@ -66,10 +66,10 @@ export default function FounderVentures() {
                 </Badge>
               </div>
 
-              <h2 className="mt-5 max-w-3xl text-3xl font-bold tracking-tight md:text-5xl">
+              <h2 className="mt-5 max-w-3xl text-2xl font-bold tracking-tight sm:text-3xl md:text-5xl">
                 Junto is the trust layer for local coordination.
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7 md:text-lg">
                 Founded and built as a social coordination platform for
                 discovering, joining, hosting, and repeating small local plans.
                 The product vision moves beyond attention feeds toward safer,
@@ -81,7 +81,7 @@ export default function FounderVentures() {
               {juntoAdvantages.map((item) => (
                 <Card
                   key={item.title}
-                  className="rounded-[1.5rem] border-white/50 bg-background/85 shadow-none"
+                  className="rounded-[1.25rem] border-white/50 bg-background/85 shadow-none md:rounded-[1.5rem]"
                 >
                   <CardContent className="p-5">
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-300">
@@ -100,11 +100,11 @@ export default function FounderVentures() {
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-700 dark:text-amber-300">
                 Core Product System
               </p>
-              <div className="mt-4 flex flex-wrap gap-3">
+              <div className="mt-4 flex flex-wrap gap-2 sm:gap-3">
                 {juntoPillars.map((pillar) => (
                   <div
                     key={pillar}
-                    className="flex items-center gap-2 rounded-full border border-border/70 bg-muted/35 px-4 py-2 text-sm text-foreground"
+                    className="flex w-full items-center gap-2 rounded-2xl border border-border/70 bg-muted/35 px-4 py-3 text-sm text-foreground sm:w-auto sm:rounded-full sm:py-2"
                   >
                     <CheckCircle2 className="h-4 w-4 text-amber-500" />
                     {pillar}
@@ -113,7 +113,7 @@ export default function FounderVentures() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button
                 size="lg"
                 className="rounded-full bg-amber-500 text-black hover:bg-amber-400"
@@ -136,7 +136,7 @@ export default function FounderVentures() {
           </div>
 
           <div className="grid gap-5">
-            <Card className="overflow-hidden rounded-[1.75rem] border-white/50 bg-card/95 shadow-xl">
+            <Card className="overflow-hidden rounded-[1.25rem] border-white/50 bg-card/95 shadow-xl md:rounded-[1.75rem]">
               <div className="border-b border-border/70 bg-muted/40 px-4 py-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">
                   Junto Platform Overview
@@ -150,14 +150,14 @@ export default function FounderVentures() {
             </Card>
 
             <div className="grid gap-5 md:grid-cols-2">
-              <Card className="overflow-hidden rounded-[1.5rem] border-white/50 bg-card/95 shadow-lg">
+              <Card className="overflow-hidden rounded-[1.25rem] border-white/50 bg-card/95 shadow-lg md:rounded-[1.5rem]">
                 <img
                   src="/junto/junto-gatekeeping.png"
                   alt="Junto host review and coordination system"
                   className="h-full w-full object-cover"
                 />
               </Card>
-              <Card className="overflow-hidden rounded-[1.5rem] border-white/50 bg-card/95 shadow-lg">
+              <Card className="overflow-hidden rounded-[1.25rem] border-white/50 bg-card/95 shadow-lg md:rounded-[1.5rem]">
                 <img
                   src="/junto/junto-os.png"
                   alt="Junto operating system for local coordination"

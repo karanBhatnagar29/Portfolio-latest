@@ -82,7 +82,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden py-24"
+      className="relative flex min-h-screen items-center overflow-hidden py-20 md:py-24"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-[8%] top-28 h-56 w-56 rounded-full bg-amber-400/20 blur-3xl" />
@@ -110,7 +110,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1
-              className="mt-7 text-5xl font-bold tracking-[-0.06em] md:text-6xl lg:text-7xl"
+              className="mt-7 text-4xl font-bold tracking-[-0.06em] sm:text-5xl md:text-6xl lg:text-7xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.35, duration: 0.7 }}
@@ -122,7 +122,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0 lg:text-xl"
+              className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-foreground lg:mx-0 lg:text-xl lg:leading-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.7 }}
@@ -133,12 +133,12 @@ export default function Hero() {
             </motion.p>
 
             <motion.div
-              className="mx-auto mt-7 flex min-h-[3.5rem] max-w-2xl items-center justify-center rounded-[1.5rem] border border-border/80 bg-background/70 px-5 py-4 text-left shadow-[0_20px_45px_-35px_rgba(15,23,42,0.25)] backdrop-blur lg:mx-0 lg:justify-start"
+              className="mx-auto mt-7 flex min-h-[3.5rem] max-w-2xl items-center justify-center rounded-[1.5rem] border border-border/80 bg-background/70 px-4 py-4 text-left shadow-[0_20px_45px_-35px_rgba(15,23,42,0.25)] backdrop-blur lg:mx-0 lg:justify-start lg:px-5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.65, duration: 0.7 }}
             >
-              <p className="text-base font-medium text-foreground md:text-lg">
+              <p className="text-sm font-medium text-foreground sm:text-base md:text-lg">
                 {typedText}
                 <span
                   className={`ml-1 inline-block h-6 w-1 rounded-full bg-primary ${
@@ -157,7 +157,7 @@ export default function Hero() {
               {quickNotes.map((note) => (
                 <div
                   key={note}
-                  className="rounded-full border border-border/80 bg-background/75 px-4 py-2 text-sm font-medium text-muted-foreground shadow-[0_14px_30px_-22px_rgba(15,23,42,0.2)] backdrop-blur"
+                  className="rounded-full border border-border/80 bg-background/75 px-4 py-2 text-xs font-medium text-muted-foreground shadow-[0_14px_30px_-22px_rgba(15,23,42,0.2)] backdrop-blur sm:text-sm"
                 >
                   {note}
                 </div>
@@ -165,7 +165,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start"
+              className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4 lg:justify-start"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.95, duration: 0.7 }}
@@ -182,7 +182,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="mt-8 flex items-center justify-center space-x-4 lg:justify-start"
+              className="mt-8 flex items-center justify-center space-x-3 lg:justify-start lg:space-x-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1, duration: 0.7 }}
@@ -221,13 +221,13 @@ export default function Hero() {
             transition={{ duration: 0.75, delay: 0.35 }}
             className="relative"
           >
-            <div className="surface-panel relative overflow-hidden rounded-[2.25rem] p-4 md:p-5">
+            <div className="surface-panel relative overflow-hidden rounded-[2rem] p-3 sm:p-4 md:rounded-[2.25rem] md:p-5">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.14),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.16),_transparent_30%)]" />
               <div className="relative grid gap-4">
-                <div className="surface-card relative overflow-hidden rounded-[1.8rem] p-4">
+                <div className="surface-card relative overflow-hidden rounded-[1.4rem] p-3 sm:p-4 md:rounded-[1.8rem]">
                   <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02),transparent)]" />
                   <div className="relative grid gap-4 md:grid-cols-[0.95fr_1.05fr] md:items-center">
-                    <div className="rounded-[1.5rem] bg-[linear-gradient(145deg,rgba(7,44,37,0.95),rgba(20,78,65,0.9))] p-3">
+                    <div className="rounded-[1.2rem] bg-[linear-gradient(145deg,rgba(7,44,37,0.95),rgba(20,78,65,0.9))] p-3 md:rounded-[1.5rem]">
                       <img
                         src="/me.jpeg"
                         alt="Karan Bhatnagar"
@@ -239,7 +239,7 @@ export default function Hero() {
                         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                           Selected Identity
                         </p>
-                        <h3 className="mt-2 text-2xl font-bold tracking-[-0.05em]">
+                        <h3 className="mt-2 text-xl font-bold tracking-[-0.05em] sm:text-2xl">
                           Modern products with founder energy.
                         </h3>
                       </div>
@@ -248,7 +248,7 @@ export default function Hero() {
                           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
                             Experience
                           </p>
-                          <p className="mt-2 text-3xl font-bold">3+</p>
+                          <p className="mt-2 text-2xl font-bold sm:text-3xl">3+</p>
                           <p className="mt-1 text-sm text-muted-foreground">
                             Years shipping production apps
                           </p>
@@ -257,7 +257,7 @@ export default function Hero() {
                           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
                             Ventures
                           </p>
-                          <p className="mt-2 text-3xl font-bold">2</p>
+                          <p className="mt-2 text-2xl font-bold sm:text-3xl">2</p>
                           <p className="mt-1 text-sm text-muted-foreground">
                             Founder-led products in market
                           </p>
@@ -273,12 +273,12 @@ export default function Hero() {
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
-                  <div className="surface-card rounded-[1.6rem] p-5">
+                  <div className="surface-card rounded-[1.4rem] p-4 sm:p-5 md:rounded-[1.6rem]">
                     <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
                       <Globe2 className="h-4 w-4" />
                       Founder Project
                     </div>
-                    <h4 className="mt-3 text-2xl font-bold tracking-[-0.04em]">
+                    <h4 className="mt-3 text-xl font-bold tracking-[-0.04em] sm:text-2xl">
                       Junto
                     </h4>
                     <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -286,12 +286,12 @@ export default function Hero() {
                       participation, and repeatable local momentum.
                     </p>
                   </div>
-                  <div className="surface-card rounded-[1.6rem] p-5">
+                  <div className="surface-card rounded-[1.4rem] p-4 sm:p-5 md:rounded-[1.6rem]">
                     <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-amber-700 dark:text-amber-300">
                       <Layers3 className="h-4 w-4" />
                       Co-Founder Venture
                     </div>
-                    <h4 className="mt-3 text-2xl font-bold tracking-[-0.04em]">
+                    <h4 className="mt-3 text-xl font-bold tracking-[-0.04em] sm:text-2xl">
                       Stumble Market
                     </h4>
                     <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -324,7 +324,7 @@ export default function Hero() {
       </div>
 
       <motion.div
-        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 cursor-pointer flex-col items-center"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 cursor-pointer flex-col items-center md:flex"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.45, duration: 0.5 }}

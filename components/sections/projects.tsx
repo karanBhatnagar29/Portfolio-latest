@@ -87,7 +87,7 @@ export default function Projects() {
   const secondaryProjects = projects.slice(1);
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-20 md:py-24">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -110,10 +110,10 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden rounded-[2rem] border border-emerald-500/20 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.2),_transparent_35%),linear-gradient(135deg,_rgba(255,255,255,0.98),_rgba(240,253,250,0.95))] p-4 shadow-[0_24px_80px_-32px_rgba(16,185,129,0.45)] dark:bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.18),_transparent_35%),linear-gradient(135deg,_rgba(10,18,17,0.98),_rgba(8,30,24,0.9))]"
+          className="relative overflow-hidden rounded-[1.6rem] border border-emerald-500/20 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.2),_transparent_35%),linear-gradient(135deg,_rgba(255,255,255,0.98),_rgba(240,253,250,0.95))] p-3 shadow-[0_24px_80px_-32px_rgba(16,185,129,0.45)] md:rounded-[2rem] md:p-4 dark:bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.18),_transparent_35%),linear-gradient(135deg,_rgba(10,18,17,0.98),_rgba(8,30,24,0.9))]"
         >
           <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.12),transparent)] opacity-40" />
-          <div className="grid gap-8 overflow-hidden rounded-[1.5rem] border border-white/40 bg-background/70 p-6 backdrop-blur md:grid-cols-[1.15fr_0.85fr] md:p-8">
+          <div className="grid gap-6 overflow-hidden rounded-[1.25rem] border border-white/40 bg-background/70 p-4 backdrop-blur sm:p-5 md:gap-8 md:rounded-[1.5rem] md:grid-cols-[1.15fr_0.85fr] md:p-8">
             <div className="flex flex-col justify-between gap-6">
               <div>
                 <div className="flex flex-wrap items-center gap-3">
@@ -124,10 +124,10 @@ export default function Projects() {
                     {spotlightProject.role}
                   </Badge>
                 </div>
-                <h3 className="mt-5 max-w-xl text-3xl font-bold tracking-tight text-balance md:text-5xl">
+                <h3 className="mt-5 max-w-xl text-2xl font-bold tracking-tight text-balance sm:text-3xl md:text-5xl">
                   {spotlightProject.title}
                 </h3>
-                <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+                <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7 md:text-lg">
                   {spotlightProject.description}
                 </p>
               </div>
@@ -149,15 +149,15 @@ export default function Projects() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                <div className="flex items-center gap-2 rounded-full border border-border/70 bg-background/90 px-4 py-2 text-sm text-muted-foreground">
+                <div className="flex w-full items-center gap-2 rounded-2xl border border-border/70 bg-background/90 px-4 py-3 text-sm text-muted-foreground sm:w-auto sm:rounded-full sm:py-2">
                   <Store className="h-4 w-4 text-emerald-500" />
                   Curated seller marketplace
                 </div>
-                <div className="flex items-center gap-2 rounded-full border border-border/70 bg-background/90 px-4 py-2 text-sm text-muted-foreground">
+                <div className="flex w-full items-center gap-2 rounded-2xl border border-border/70 bg-background/90 px-4 py-3 text-sm text-muted-foreground sm:w-auto sm:rounded-full sm:py-2">
                   <ShieldCheck className="h-4 w-4 text-emerald-500" />
                   Trusted and verified shopping
                 </div>
-                <div className="flex items-center gap-2 rounded-full border border-border/70 bg-background/90 px-4 py-2 text-sm text-muted-foreground">
+                <div className="flex w-full items-center gap-2 rounded-2xl border border-border/70 bg-background/90 px-4 py-3 text-sm text-muted-foreground sm:w-auto sm:rounded-full sm:py-2">
                   <Layers3 className="h-4 w-4 text-emerald-500" />
                   Premium founder-led product design
                 </div>
@@ -167,7 +167,7 @@ export default function Projects() {
                 {spotlightProject.highlight}
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button size="lg" className="rounded-full bg-emerald-600 text-white hover:bg-emerald-500" asChild>
                   <a
                     href={spotlightProject.demo}
@@ -189,19 +189,19 @@ export default function Projects() {
 
             <div className="relative">
               <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-emerald-500/25 via-transparent to-amber-400/20 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[1.5rem] border border-border/70 bg-card shadow-2xl">
-                <div className="flex items-center justify-between border-b border-border/70 bg-muted/50 px-4 py-3">
+              <div className="relative overflow-hidden rounded-[1.25rem] border border-border/70 bg-card shadow-2xl md:rounded-[1.5rem]">
+                <div className="flex items-center justify-between gap-3 border-b border-border/70 bg-muted/50 px-4 py-3">
                   <div className="flex items-center gap-2">
                     <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
                     <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
                   </div>
-                  <p className="text-xs font-medium uppercase tracking-[0.24em] text-muted-foreground">
+                  <p className="truncate text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground sm:text-xs sm:tracking-[0.24em]">
                     {spotlightProject.title}
                   </p>
                 </div>
                 {spotlightProject.previewMode === "live" ? (
-                  <div className="relative h-[320px] w-full bg-background md:h-[500px]">
+                  <div className="relative h-[260px] w-full bg-background sm:h-[320px] md:h-[500px]">
                     <iframe
                       src={spotlightProject.demo}
                       title={`${spotlightProject.title} live preview`}
@@ -210,8 +210,8 @@ export default function Projects() {
                       referrerPolicy="no-referrer"
                     />
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background/85 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-full border border-border/70 bg-background/90 px-4 py-2 backdrop-blur">
-                      <p className="truncate text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                    <div className="absolute bottom-3 left-3 right-3 flex flex-col gap-2 rounded-2xl border border-border/70 bg-background/90 px-3 py-3 backdrop-blur sm:bottom-4 sm:left-4 sm:right-4 sm:flex-row sm:items-center sm:justify-between sm:rounded-full sm:px-4 sm:py-2">
+                      <p className="truncate text-[10px] font-medium uppercase tracking-[0.15em] text-muted-foreground sm:text-xs sm:tracking-[0.18em]">
                         Live preview from URL
                       </p>
                       <a
@@ -316,7 +316,7 @@ export default function Projects() {
                   )}
                 </div>
                 <CardContent className="flex-grow p-6">
-                  <div className="mb-3 flex items-center justify-between gap-3">
+                  <div className="mb-3 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <h3 className="text-xl font-medium">{project.title}</h3>
                     {project.role && (
                       <span className="rounded-full bg-muted px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">

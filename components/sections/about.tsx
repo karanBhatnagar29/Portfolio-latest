@@ -25,7 +25,7 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="py-24 relative overflow-hidden"
+      className="relative overflow-hidden py-20 md:py-24"
     >
       {/* Background elements */}
       <div className="absolute inset-0 -z-10">
@@ -57,7 +57,7 @@ export default function About() {
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 items-center">
           {/* Enhanced Image Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -74,7 +74,7 @@ export default function About() {
               />
 
               {/* Floating Experience Badge */}
-              <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-primary/30 rounded-xl px-4 py-3 shadow-md flex items-center gap-3">
+              <div className="absolute bottom-3 right-3 flex items-center gap-3 rounded-xl border border-primary/30 bg-white/80 px-3 py-2 shadow-md backdrop-blur-md dark:bg-zinc-900/80 sm:bottom-4 sm:right-4 sm:px-4 sm:py-3">
                 <div className="bg-primary/10 p-3 rounded-full">
                   <span className="text-primary font-bold text-lg">3+</span>
                 </div>
@@ -130,7 +130,7 @@ export default function About() {
               polished digital products that work flawlessly and look great.
             </p>
 
-            <div className="grid grid-cols-2 gap-6 mb-8">
+            <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
               <div className="bg-muted/30 p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">Frontend Development</h4>
                 <p className="text-sm text-muted-foreground">
@@ -161,7 +161,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <Button className="group">
                 <Download className="mr-2 h-4 w-4 transition-transform group-hover:-translate-y-1" />
                 Download Resume

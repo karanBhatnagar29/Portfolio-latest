@@ -76,7 +76,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 gradient-bg">
+    <section id="contact" className="py-20 md:py-24 gradient-bg">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -95,7 +95,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -103,7 +103,7 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <Card className="h-full border shadow-lg card-hover">
-              <CardContent className="p-8">
+              <CardContent className="p-5 sm:p-6 md:p-8">
                 <h3 className="text-2xl font-heading font-bold mb-6">
                   Contact Information
                 </h3>
@@ -159,7 +159,7 @@ export default function Contact() {
 
                 <div className="border-t pt-8">
                   <h4 className="font-medium mb-4">Connect with me</h4>
-                  <div className="flex space-x-4">
+                  <div className="flex flex-wrap gap-3 sm:space-x-4 sm:gap-0">
                     <a
                       href="https://github.com/karanBhatnagar29"
                       target="_blank"
@@ -200,7 +200,7 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <Card className="border shadow-lg card-hover">
-              <CardContent className="p-8">
+              <CardContent className="p-5 sm:p-6 md:p-8">
                 <h3 className="text-2xl font-heading font-bold mb-6">
                   Send Me a Message
                 </h3>
@@ -219,7 +219,7 @@ export default function Contact() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                     <div>
                       <label
                         htmlFor="name"
