@@ -16,6 +16,13 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: <BrainCircuit className="h-10 w-10" />,
+    title: "Tech Counselling & Product Direction",
+    description:
+      "I help founders and teams make smarter early technical decisions around MVP scope, stack choice, roadmap sequencing, architecture, and delivery risk.",
+    technologies: ["MVP Scoping", "Architecture Direction", "Product Strategy", "Startup Advisory"],
+  },
+  {
+    icon: <BrainCircuit className="h-10 w-10" />,
     title: "AI-Powered Full Stack Development",
     description:
       "I use cutting-edge AI tools to architect, build, and ship complete web and mobile products — delivering higher quality at a faster pace than traditional workflows.",
@@ -102,21 +109,21 @@ export default function Services() {
             variant="outline"
             className="mb-4 px-3 py-1 text-sm border-primary/20 bg-primary/5"
           >
-            My Services
+            Services & Advisory
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-            What I Can Do For You
+            What I Can Help You Build
           </h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            I offer end-to-end development services, from building clean UI
-            interfaces to crafting powerful backends and native mobile apps,
-            with a strong focus on modern technologies and maintainability.
+            From founder advisory and tech counselling to full-stack execution,
+            I help shape and ship digital products with stronger decisions and
+            cleaner implementation.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -126,7 +133,7 @@ export default function Services() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group bg-background border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              className="group surface-card rounded-[1.75rem] p-6 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="bg-primary/10 p-4 rounded-lg inline-block mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                 {service.icon}

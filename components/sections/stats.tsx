@@ -1,56 +1,40 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef, useState, useEffect } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Briefcase, Users, Coffee, Award } from "lucide-react"
+import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { BriefcaseBusiness, Compass, Gem, Rocket } from "lucide-react";
 
 const stats = [
   {
-    icon: <Briefcase className="h-6 w-6" />,
-    value: 50,
-    label: "Projects Completed",
-    suffix: "+",
+    icon: Rocket,
+    value: "Founder",
+    label: "Junto",
+    description: "Building a trust-based social coordination product.",
   },
   {
-    icon: <Users className="h-6 w-6" />,
-    value: 50,
-    label: "Satisfied Clients",
-    suffix: "+",
+    icon: Gem,
+    value: "Co-Founder",
+    label: "Stumble Market",
+    description: "Shaping a premium second-hand marketplace experience.",
   },
   {
-    icon: <Coffee className="h-6 w-6" />,
-    value: 5000,
-    label: "Cups of Coffee",
-    suffix: "+",
+    icon: BriefcaseBusiness,
+    value: "3+ Years",
+    label: "Product Building",
+    description: "Shipping web, mobile, backend, and marketplace systems.",
   },
   {
-    icon: <Award className="h-6 w-6" />,
-    value: 15000,
-    label: "Hours of Experience",
-    suffix: "",
+    icon: Compass,
+    value: "Tech Counselling",
+    label: "Advisory Lens",
+    description: "Helping founders decide what to build and how to build it.",
   },
-]
+];
 
 export default function Stats() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.5 })
-  const [hasAnimated, setHasAnimated] = useState(false)
-
-  useEffect(() => {
-    if (isInView) {
-      setHasAnimated(true)
-    }
-  }, [isInView])
-
   return (
-    <section className="py-16 bg-primary/5 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-[0.05]"></div>
-      </div>
-
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,77 +43,48 @@ export default function Stats() {
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-sm border-primary/20 bg-primary/5">
-            Achievements
+          <Badge className="mb-4 rounded-full bg-primary/10 px-4 py-2 text-primary">
+            Founder Snapshot
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">My Journey in Numbers</h2>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+          <h2 className="text-3xl font-bold md:text-5xl">
+            More than a portfolio. This is operator context.
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">
+            I bring founder thinking, product judgment, and full-stack
+            execution into the same room.
+          </p>
         </motion.div>
 
-        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {stats.map((stat, index) => (
             <motion.div
-              key={index}
+              key={stat.label}
               initial={{ opacity: 0, y: 20 }}
-              animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-background border border-border rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300"
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              viewport={{ once: true }}
+              className="card-hover"
             >
-              <div className="bg-primary/10 p-3 rounded-full inline-block mb-4 text-primary">{stat.icon}</div>
-              <div className="flex items-center justify-center">
-                <CountUp
-                  end={stat.value}
-                  duration={2}
-                  isInView={hasAnimated}
-                  className="text-3xl md:text-4xl font-bold"
-                />
-                <span className="text-3xl md:text-4xl font-bold">{stat.suffix}</span>
-              </div>
-              <p className="text-muted-foreground mt-2">{stat.label}</p>
+              <Card className="surface-card h-full rounded-[1.75rem]">
+                <CardContent className="p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <stat.icon className="h-5 w-5" />
+                  </div>
+                  <p className="mt-5 text-3xl font-bold tracking-[-0.04em]">
+                    {stat.value}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    {stat.label}
+                  </p>
+                  <p className="mt-4 text-sm leading-6 text-muted-foreground">
+                    {stat.description}
+                  </p>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
-
-interface CountUpProps {
-  end: number
-  duration: number
-  isInView: boolean
-  className?: string
-}
-
-function CountUp({ end, duration, isInView, className }: CountUpProps) {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    if (!isInView) return
-
-    let startTime: number | null = null
-    let animationFrame: number
-
-    const startAnimation = (timestamp: number) => {
-      if (!startTime) startTime = timestamp
-      const progress = timestamp - startTime
-      const progressPercent = Math.min(progress / (duration * 1000), 1)
-
-      setCount(Math.floor(progressPercent * end))
-
-      if (progressPercent < 1) {
-        animationFrame = requestAnimationFrame(startAnimation)
-      }
-    }
-
-    animationFrame = requestAnimationFrame(startAnimation)
-
-    return () => {
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame)
-      }
-    }
-  }, [isInView, end, duration])
-
-  return <span className={className}>{count}</span>
+  );
 }

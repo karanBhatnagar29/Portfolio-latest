@@ -89,8 +89,9 @@ export default function Contact() {
             Get In Touch
           </h2>
           <p className="mt-8 text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to discuss a potential collaboration?
-            I'm always open to new opportunities.
+            Need product clarity, technical direction, or a strong builder for
+            your next launch? Reach out for tech counselling, founder advisory,
+            or hands-on execution.
           </p>
         </motion.div>
 

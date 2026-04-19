@@ -1,13 +1,41 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink, ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  ExternalLink,
+  Layers3,
+  Linkedin,
+  ShieldCheck,
+  Sparkles,
+  Store,
+} from "lucide-react";
 
 const projects = [
+  {
+    id: 13,
+    title: "Stumble Market",
+    description:
+      "A curated second-hand marketplace for fashion, home goods, collectibles, and trusted independent sellers. As co-founder, I helped shape the product direction and build an experience that makes sustainable shopping feel premium, modern, and trustworthy.",
+    image: "https://image.thum.io/get/width/1400/https://www.stumble.market/",
+    tags: ["Marketplace", "Next.js", "E-commerce", "Product Strategy", "Brand UX"],
+    demo: "https://www.stumble.market/",
+    github: "",
+    category: "marketplace",
+    featured: true,
+    platform: "web",
+    role: "Co-Founder",
+    previewMode: "live",
+    highlight: "Curated resale experience with verified sellers, trusted checkout, and a premium visual layer for second-hand commerce.",
+    stats: [
+      { label: "Role", value: "Co-Founder" },
+      { label: "Focus", value: "Marketplace UX" },
+      { label: "Positioning", value: "Verified resale" },
+    ],
+  },
   {
     id: 10,
     title: "ZestyCrops – Spices E-Commerce",
@@ -21,6 +49,7 @@ const projects = [
     category: "fullstack",
     featured: true,
     platform: "",
+    role: "Full-Stack Developer",
   },
   {
     id: 11,
@@ -34,24 +63,28 @@ const projects = [
     category: "fullstack",
     featured: true,
     platform: "",
+    role: "Product Engineer",
   },
   {
     id: 12,
-    title: "Social – React Native App",
+    title: "Junto",
     description:
-      "A feature-rich social networking mobile app built with React Native. Includes user profiles, posts, real-time feed, likes/comments, follow system, and push notifications. Available on Android.",
-    image: "https://reactnative.dev/img/header_logo.svg",
-    tags: ["React Native", "Supabase", "Expo", "TypeScript"],
+      "A trust-based social coordination app built to help people discover, join, host, and repeat high-intent local plans. Junto is designed around reliability, gatekept access, contextual coordination, and real-world participation instead of passive attention loops.",
+    image: "/junto/junto-intro.png",
+    tags: ["React Native", "Social App", "Trust Systems", "Product Strategy", "Founder"],
     demo: "",
     github: "",
-    category: "fullstack",
+    category: "social",
     featured: true,
     platform: "mobile",
+    role: "Founder & Builder",
+    imageMode: "cover",
   },
 ];
 
 export default function Projects() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const spotlightProject = projects[0];
+  const secondaryProjects = projects.slice(1);
 
   return (
     <section id="projects" className="py-24">
@@ -67,26 +100,179 @@ export default function Projects() {
             My Portfolio
           </h2>
           <p className="mt-8 text-muted-foreground max-w-2xl mx-auto">
-            Explore my recent projects showcasing my expertise in web
-            development, from responsive frontends to scalable backend systems.
+            Founder case studies and selected builds across social products,
+            marketplaces, internal tools, and full-stack platforms.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+          className="relative overflow-hidden rounded-[2rem] border border-emerald-500/20 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.2),_transparent_35%),linear-gradient(135deg,_rgba(255,255,255,0.98),_rgba(240,253,250,0.95))] p-4 shadow-[0_24px_80px_-32px_rgba(16,185,129,0.45)] dark:bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.18),_transparent_35%),linear-gradient(135deg,_rgba(10,18,17,0.98),_rgba(8,30,24,0.9))]"
+        >
+          <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.12),transparent)] opacity-40" />
+          <div className="grid gap-8 overflow-hidden rounded-[1.5rem] border border-white/40 bg-background/70 p-6 backdrop-blur md:grid-cols-[1.15fr_0.85fr] md:p-8">
+            <div className="flex flex-col justify-between gap-6">
+              <div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Badge className="rounded-full border-0 bg-emerald-500 text-white">
+                    Co-Founder Venture
+                  </Badge>
+                  <Badge variant="outline" className="rounded-full border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
+                    {spotlightProject.role}
+                  </Badge>
+                </div>
+                <h3 className="mt-5 max-w-xl text-3xl font-bold tracking-tight text-balance md:text-5xl">
+                  {spotlightProject.title}
+                </h3>
+                <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+                  {spotlightProject.description}
+                </p>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                {spotlightProject.stats?.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-2xl border border-emerald-500/15 bg-emerald-500/5 p-4"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700/80 dark:text-emerald-300/80">
+                      {stat.label}
+                    </p>
+                    <p className="mt-2 text-sm font-semibold text-foreground">
+                      {stat.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                <div className="flex items-center gap-2 rounded-full border border-border/70 bg-background/90 px-4 py-2 text-sm text-muted-foreground">
+                  <Store className="h-4 w-4 text-emerald-500" />
+                  Curated seller marketplace
+                </div>
+                <div className="flex items-center gap-2 rounded-full border border-border/70 bg-background/90 px-4 py-2 text-sm text-muted-foreground">
+                  <ShieldCheck className="h-4 w-4 text-emerald-500" />
+                  Trusted and verified shopping
+                </div>
+                <div className="flex items-center gap-2 rounded-full border border-border/70 bg-background/90 px-4 py-2 text-sm text-muted-foreground">
+                  <Layers3 className="h-4 w-4 text-emerald-500" />
+                  Premium founder-led product design
+                </div>
+              </div>
+
+              <p className="rounded-2xl border border-emerald-500/15 bg-background/80 p-4 text-sm leading-6 text-muted-foreground">
+                {spotlightProject.highlight}
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <Button size="lg" className="rounded-full bg-emerald-600 text-white hover:bg-emerald-500" asChild>
+                  <a
+                    href={spotlightProject.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Stumble Market
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="rounded-full border-emerald-500/30 hover:bg-emerald-500/5" asChild>
+                  <a href="#contact">
+                    Let&apos;s build something ambitious
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-emerald-500/25 via-transparent to-amber-400/20 blur-3xl" />
+              <div className="relative overflow-hidden rounded-[1.5rem] border border-border/70 bg-card shadow-2xl">
+                <div className="flex items-center justify-between border-b border-border/70 bg-muted/50 px-4 py-3">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                  </div>
+                  <p className="text-xs font-medium uppercase tracking-[0.24em] text-muted-foreground">
+                    {spotlightProject.title}
+                  </p>
+                </div>
+                {spotlightProject.previewMode === "live" ? (
+                  <div className="relative h-[320px] w-full bg-background md:h-[500px]">
+                    <iframe
+                      src={spotlightProject.demo}
+                      title={`${spotlightProject.title} live preview`}
+                      className="h-full w-full"
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background/85 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-full border border-border/70 bg-background/90 px-4 py-2 backdrop-blur">
+                      <p className="truncate text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                        Live preview from URL
+                      </p>
+                      <a
+                        href={spotlightProject.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 transition-colors hover:text-emerald-500 dark:text-emerald-300"
+                      >
+                        Open site
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  <img
+                    src={spotlightProject.image}
+                    alt={spotlightProject.title}
+                    className="h-[320px] w-full object-cover object-top md:h-[500px]"
+                  />
+                )}
+                <div className="grid gap-3 border-t border-border/70 bg-background/90 p-4 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-border/70 bg-muted/30 p-4">
+                    <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                      <Sparkles className="h-4 w-4 text-emerald-500" />
+                      What it is
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      Verified second-hand commerce with fashion, home goods,
+                      collectibles, trusted sellers, and polished storefront discovery.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-border/70 bg-muted/30 p-4">
+                    <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                      <ShieldCheck className="h-4 w-4 text-emerald-500" />
+                      Why it stands out
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      The interface makes resale feel premium and safe with
+                      stronger hierarchy, credibility signals, and cleaner buyer intent paths.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {secondaryProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
               className="card-hover"
             >
               <Card className="overflow-hidden h-full flex flex-col border bg-card">
                 <div className="relative overflow-hidden h-48 group">
-                  {project.platform === "mobile" ? (
+                  {project.platform === "mobile" &&
+                  project.imageMode !== "cover" ? (
                     <div className="w-full h-full flex items-center justify-center bg-[#20232a]">
                       <img
                         src={project.image}
@@ -130,7 +316,14 @@ export default function Projects() {
                   )}
                 </div>
                 <CardContent className="flex-grow p-6">
-                  <h3 className="text-xl font-medium mb-2">{project.title}</h3>
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <h3 className="text-xl font-medium">{project.title}</h3>
+                    {project.role && (
+                      <span className="rounded-full bg-muted px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                        {project.role}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-muted-foreground text-sm mb-4">
                     {project.description}
                   </p>
@@ -182,11 +375,11 @@ export default function Projects() {
         <div className="mt-12 text-center">
           <Button variant="outline" size="lg" className="rounded-full" asChild>
             <a
-              href="https://github.com"
+              href="https://www.linkedin.com/in/karanbhatnagar29/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              View All Projects on GitHub <Github className="ml-2 h-4 w-4" />
+              See more of my work and founder journey <Linkedin className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </div>

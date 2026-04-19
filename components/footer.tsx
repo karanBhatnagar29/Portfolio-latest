@@ -1,107 +1,105 @@
 import Link from "next/link"
-import { Github, Linkedin, Twitter, Instagram } from "lucide-react"
+import { Github, Linkedin, Instagram, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t py-12 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-8 md:mb-0 text-center md:text-left">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              Karan Bhatnagaer
-            </h3>
-            <p className="text-muted-foreground mt-2 max-w-md">
-              Creating exceptional digital experiences with cutting-edge technologies and innovative solutions.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 text-center md:text-left">
-            <div>
-              <h4 className="font-semibold mb-3">Navigation</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#home" className="text-muted-foreground hover:text-primary transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#about" className="text-muted-foreground hover:text-primary transition-colors">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#projects" className="text-muted-foreground hover:text-primary transition-colors">
-                    Projects
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3">Services</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors">
-                    Web Development
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors">
-                    UI/UX Design
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors">
-                    Mobile Apps
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors">
-                    Consulting
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="col-span-2 md:col-span-1">
-              <h4 className="font-semibold mb-3">Contact</h4>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">karanbhatnagar862@gmail.com</li>
-                <li className="text-muted-foreground">9829760022</li>
-                <li className="text-muted-foreground">Jodhpur, Rajasthan</li>
-              </ul>
-              <div className="flex justify-center md:justify-start space-x-4 mt-4">
-                <Button variant="ghost" size="icon" asChild>
-                  <a href="https://github.com/karanBhatnagar29" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <Github className="h-5 w-5" />
+    <footer className="px-4 pb-6 pt-16">
+      <div className="container mx-auto">
+        <div className="overflow-hidden rounded-[2rem] border border-border/70 bg-[linear-gradient(135deg,rgba(7,44,37,0.96),rgba(10,22,37,0.98))] px-6 py-10 text-white shadow-[0_30px_80px_-40px_rgba(15,23,42,0.7)] md:px-10">
+          <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+            <div className="max-w-xl text-center md:text-left">
+              <div className="eyebrow border-white/10 bg-white/5 text-white/70">
+                Built for products with ambition
+              </div>
+              <h3 className="mt-5 text-3xl font-bold tracking-[-0.05em] text-white md:text-4xl">
+                Karan Bhatnagar
+              </h3>
+              <p className="mt-4 max-w-lg text-white/70">
+                Founder of Junto and co-founder of Stumble Market. I build
+                memorable digital products with strong product thinking, visual
+                taste, and production-ready engineering.
+              </p>
+              <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
+                <Button className="rounded-full bg-white text-slate-950 hover:bg-white/90" asChild>
+                  <a href="#contact">
+                    Start a conversation
+                    <ArrowUpRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
-                <Button variant="ghost" size="icon" asChild>
-                  <a href="https://www.linkedin.com/in/karanbhatnagar29/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                </Button>
-                {/* <Button variant="ghost" size="icon" asChild>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                    <Twitter className="h-5 w-5" />
-                  </a>
-                </Button> */}
-                <Button variant="ghost" size="icon" asChild>
-                  <a href="https://www.instagram.com/karan_bhatnagar_/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <Instagram className="h-5 w-5" />
-                  </a>
+                <Button variant="outline" className="rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10 hover:text-white" asChild>
+                  <a href="#projects">Browse selected work</a>
                 </Button>
               </div>
             </div>
+
+            <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-3 md:text-left">
+              <div>
+                <h4 className="mb-3 font-semibold text-white">Navigation</h4>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="#home" className="text-white/65 transition-colors hover:text-white">
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#ventures" className="text-white/65 transition-colors hover:text-white">
+                      Ventures
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#projects" className="text-white/65 transition-colors hover:text-white">
+                      Projects
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#contact" className="text-white/65 transition-colors hover:text-white">
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="mb-3 font-semibold text-white">Focus</h4>
+                <ul className="space-y-2">
+                  <li className="text-white/65">Founder-led products</li>
+                  <li className="text-white/65">Marketplaces</li>
+                  <li className="text-white/65">Social experiences</li>
+                  <li className="text-white/65">Full-stack systems</li>
+                </ul>
+              </div>
+              <div className="col-span-2 md:col-span-1">
+                <h4 className="mb-3 font-semibold text-white">Contact</h4>
+                <ul className="space-y-2">
+                  <li className="text-white/65">karanbhatnagar862@gmail.com</li>
+                  <li className="text-white/65">9829760022</li>
+                  <li className="text-white/65">Jodhpur, Rajasthan</li>
+                </ul>
+                <div className="mt-4 flex justify-center space-x-3 md:justify-start">
+                  <Button variant="ghost" size="icon" className="rounded-full text-white/80 hover:bg-white/10 hover:text-white" asChild>
+                    <a href="https://github.com/karanBhatnagar29" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                      <Github className="h-5 w-5" />
+                    </a>
+                  </Button>
+                  <Button variant="ghost" size="icon" className="rounded-full text-white/80 hover:bg-white/10 hover:text-white" asChild>
+                    <a href="https://www.linkedin.com/in/karanbhatnagar29/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                      <Linkedin className="h-5 w-5" />
+                    </a>
+                  </Button>
+                  <Button variant="ghost" size="icon" className="rounded-full text-white/80 hover:bg-white/10 hover:text-white" asChild>
+                    <a href="https://www.instagram.com/karan_bhatnagar_/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                      <Instagram className="h-5 w-5" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>© {currentYear} Karan Bhatnagar. All rights reserved. Designed and developed with passion.</p>
+          <div className="mt-10 border-t border-white/10 pt-6 text-center text-sm text-white/50">
+            <p>© {currentYear} Karan Bhatnagar. Designed to feel like a product, not a template.</p>
+          </div>
         </div>
       </div>
     </footer>

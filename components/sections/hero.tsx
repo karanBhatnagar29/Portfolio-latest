@@ -1,42 +1,47 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
   Github,
+  Globe2,
+  Layers3,
   Linkedin,
   Mail,
   MousePointer,
   ChevronDown,
+  Sparkles,
 } from "lucide-react";
-import { useTheme } from "next-themes";
-import { cn } from "@/lib/utils";
+
+const quickNotes = [
+  "Founder of Junto",
+  "Co-Founder at Stumble Market",
+  "Full-Stack Product Builder",
+];
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const phrases = [
-    "AI Full Stack Developer",
-    "React Native Developer",
-    "Cloud & DevOps Engineer",
-    "Problem Solver",
-  ];
-  const typingSpeed = 100;
-  const deletingSpeed = 50;
-  const pauseDuration = 1500;
   const [isDeleting, setIsDeleting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const { theme } = useTheme();
+
+  const phrases = [
+    "Founder-led products with taste",
+    "Modern marketplaces and social apps",
+    "Full-stack execution from idea to launch",
+  ];
+  const typingSpeed = 70;
+  const deletingSpeed = 36;
+  const pauseDuration = 1700;
 
   useEffect(() => {
     const handleTyping = () => {
       const currentPhrase = phrases[currentPhraseIndex];
 
       if (isDeleting) {
-        // Deleting text
         setTypedText(currentPhrase.substring(0, typedText.length - 1));
 
         if (typedText.length === 0) {
@@ -44,10 +49,8 @@ export default function Hero() {
           setCurrentPhraseIndex((currentPhraseIndex + 1) % phrases.length);
         }
       } else if (!isPaused) {
-        // Typing text
         setTypedText(currentPhrase.substring(0, typedText.length + 1));
 
-        // If we've completed typing the current phrase
         if (typedText.length === currentPhrase.length) {
           setIsPaused(true);
           pauseTimeoutRef.current = setTimeout(() => {
@@ -70,7 +73,7 @@ export default function Hero() {
   }, [typedText, currentPhraseIndex, isDeleting, isPaused, phrases]);
 
   const scrollToNext = () => {
-    const aboutSection = document.getElementById("about");
+    const aboutSection = document.getElementById("ventures");
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: "smooth" });
     }
@@ -79,183 +82,256 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center py-20 overflow-hidden"
+      className="relative flex min-h-screen items-center overflow-hidden py-24"
     >
-      {/* Background elements */}
-      {/* <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-[0.05]"></div>
-        <div
-          className={cn(
-            "absolute top-20 right-[10%] w-72 h-72 rounded-full blur-3xl opacity-20",
-            theme === "dark" ? "bg-primary" : "bg-primary/40"
-          )}
-        ></div>
-        <div
-          className={cn(
-            "absolute bottom-20 left-[10%] w-96 h-96 rounded-full blur-3xl opacity-20",
-            theme === "dark" ? "bg-primary/60" : "bg-primary/30"
-          )}
-        ></div>
-      </div> */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute left-[8%] top-28 h-56 w-56 rounded-full bg-amber-400/20 blur-3xl" />
+        <div className="absolute right-[10%] top-24 h-72 w-72 rounded-full bg-emerald-500/16 blur-3xl" />
+        <div className="absolute bottom-20 left-[28%] h-64 w-64 rounded-full bg-primary/12 blur-3xl" />
+      </div>
 
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-center md:text-left"
+            className="text-center lg:text-left"
           >
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">
-                Available for freelance work
+              <span className="eyebrow">
+                <Sparkles className="h-3.5 w-3.5" />
+                Contact for tech counselling
               </span>
             </motion.div>
 
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 font-heading"
+              className="mt-7 text-5xl font-bold tracking-[-0.06em] md:text-6xl lg:text-7xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.35, duration: 0.7 }}
+            >
+              Founder-minded design.
+              <span className="mt-2 block gradient-text">
+                Full-stack execution.
+              </span>
+            </motion.h1>
+
+            <motion.p
+              className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0 lg:text-xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.7 }}
             >
-              Hi, I'm <span className="text-primary">Karan Bhatnagar</span>
-            </motion.h1>
-
-            <motion.h2
-              className="text-2xl md:text-3xl font-medium mt-4 text-muted-foreground h-12 mb-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.7 }}
-            >
-              <span className="inline-block min-w-[20px]">{typedText}</span>
-              <span
-                className={`inline-block w-1 h-6 ml-1 bg-primary ${
-                  isPaused ? "opacity-0" : "animate-blink"
-                }`}
-              ></span>
-            </motion.h2>
-
-            <motion.p
-              className="text-lg text-muted-foreground max-w-lg mx-auto md:mx-0 mb-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.7 }}
-            >
-              AI-powered Full Stack Developer with 3+ years of experience. I
-              leverage cutting-edge AI tools to architect and ship complete web
-              & mobile products — faster, smarter, and at scale.
+              I&apos;m Karan Bhatnagar. I build modern digital products that look
+              intentional, convert clearly, and ship fast, from founder-led
+              ventures like Junto to commerce platforms like Stumble Market.
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-4 justify-center md:justify-start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 0.7 }}
+              className="mx-auto mt-7 flex min-h-[3.5rem] max-w-2xl items-center justify-center rounded-[1.5rem] border border-border/80 bg-background/70 px-5 py-4 text-left shadow-[0_20px_45px_-35px_rgba(15,23,42,0.25)] backdrop-blur lg:mx-0 lg:justify-start"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.65, duration: 0.7 }}
             >
-              <Button size="lg" className="group">
-                View My Work
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <p className="text-base font-medium text-foreground md:text-lg">
+                {typedText}
+                <span
+                  className={`ml-1 inline-block h-6 w-1 rounded-full bg-primary ${
+                    isPaused ? "opacity-0" : "animate-blink"
+                  }`}
+                />
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.7 }}
+            >
+              {quickNotes.map((note) => (
+                <div
+                  key={note}
+                  className="rounded-full border border-border/80 bg-background/75 px-4 py-2 text-sm font-medium text-muted-foreground shadow-[0_14px_30px_-22px_rgba(15,23,42,0.2)] backdrop-blur"
+                >
+                  {note}
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.95, duration: 0.7 }}
+            >
+              <Button size="lg" className="rounded-full group" asChild>
+                <a href="#projects">
+                  Explore My Work
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="#contact">Contact Me</a>
+              <Button size="lg" variant="outline" className="rounded-full" asChild>
+                <a href="#contact">Discuss a project</a>
               </Button>
             </motion.div>
 
             <motion.div
-              className="mt-8 flex items-center space-x-4 justify-center md:justify-start"
+              className="mt-8 flex items-center justify-center space-x-4 lg:justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.3, duration: 0.7 }}
+              transition={{ delay: 1.1, duration: 0.7 }}
             >
               <a
                 href="https://github.com/karanBhatnagar29"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+                className="rounded-full border border-border/80 bg-background/75 p-3 text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:text-primary"
               >
-                <Github className="h-6 w-6" />
+                <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/karanbhatnagar29/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+                className="rounded-full border border-border/80 bg-background/75 p-3 text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:text-primary"
               >
-                <Linkedin className="h-6 w-6" />
+                <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </a>
               <a
                 href="mailto:karanbhatnagar862@gmail.com"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+                className="rounded-full border border-border/80 bg-background/75 p-3 text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:text-primary"
               >
-                <Mail className="h-6 w-6" />
+                <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </a>
             </motion.div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
+            transition={{ duration: 0.75, delay: 0.35 }}
             className="relative"
           >
-            <div className="relative z-10">
-              <div className="aspect-square max-w-md mx-auto rounded-full bg-gradient-to-br from-primary/20 via-primary/10 to-transparent p-1.5">
-                <div className="h-full w-full overflow-hidden rounded-full bg-background p-4">
-                  <img
-                    src="/me.jpeg"
-                    alt="Your Name"
-                    className="h-full w-full rounded-full object-cover"
-                  />
+            <div className="surface-panel relative overflow-hidden rounded-[2.25rem] p-4 md:p-5">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.14),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.16),_transparent_30%)]" />
+              <div className="relative grid gap-4">
+                <div className="surface-card relative overflow-hidden rounded-[1.8rem] p-4">
+                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02),transparent)]" />
+                  <div className="relative grid gap-4 md:grid-cols-[0.95fr_1.05fr] md:items-center">
+                    <div className="rounded-[1.5rem] bg-[linear-gradient(145deg,rgba(7,44,37,0.95),rgba(20,78,65,0.9))] p-3">
+                      <img
+                        src="/me.jpeg"
+                        alt="Karan Bhatnagar"
+                        className="aspect-[4/5] w-full rounded-[1.1rem] object-cover"
+                      />
+                    </div>
+                    <div className="space-y-4 text-left">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                          Selected Identity
+                        </p>
+                        <h3 className="mt-2 text-2xl font-bold tracking-[-0.05em]">
+                          Modern products with founder energy.
+                        </h3>
+                      </div>
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div className="rounded-[1.2rem] border border-border/80 bg-muted/35 p-4">
+                          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                            Experience
+                          </p>
+                          <p className="mt-2 text-3xl font-bold">3+</p>
+                          <p className="mt-1 text-sm text-muted-foreground">
+                            Years shipping production apps
+                          </p>
+                        </div>
+                        <div className="rounded-[1.2rem] border border-border/80 bg-muted/35 p-4">
+                          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                            Ventures
+                          </p>
+                          <p className="mt-2 text-3xl font-bold">2</p>
+                          <p className="mt-1 text-sm text-muted-foreground">
+                            Founder-led products in market
+                          </p>
+                        </div>
+                      </div>
+                      <div className="rounded-[1.2rem] border border-emerald-500/15 bg-emerald-500/8 p-4 text-sm leading-6 text-muted-foreground">
+                        Junto focuses on trust-based local coordination.
+                        Stumble Market reframes second-hand commerce as curated
+                        and premium.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
+                  <div className="surface-card rounded-[1.6rem] p-5">
+                    <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
+                      <Globe2 className="h-4 w-4" />
+                      Founder Project
+                    </div>
+                    <h4 className="mt-3 text-2xl font-bold tracking-[-0.04em]">
+                      Junto
+                    </h4>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      Trust-based social coordination for real-world plans, safer
+                      participation, and repeatable local momentum.
+                    </p>
+                  </div>
+                  <div className="surface-card rounded-[1.6rem] p-5">
+                    <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-amber-700 dark:text-amber-300">
+                      <Layers3 className="h-4 w-4" />
+                      Co-Founder Venture
+                    </div>
+                    <h4 className="mt-3 text-2xl font-bold tracking-[-0.04em]">
+                      Stumble Market
+                    </h4>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      Curated second-hand marketplace with a cleaner,
+                      credibility-first experience for buyers and sellers.
+                    </p>
+                  </div>
                 </div>
               </div>
-
-              <motion.div
-                className="absolute -bottom-6 -right-6 rounded-xl bg-background p-4 shadow-lg dark:shadow-primary/10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.5 }}
-              >
-                <div className="rounded-lg bg-primary/10 px-4 py-2 text-primary">
-                  <p className="font-medium">3+ Years Experience</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute -top-2 -left-6 rounded-xl bg-background p-4 shadow-lg dark:shadow-primary/10"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.5 }}
-              >
-                <div className="rounded-lg bg-primary/10 px-4 py-2 text-primary">
-                  <p className="font-medium">10+ Projects</p>
-                </div>
-              </motion.div>
             </div>
 
-            {/* Decorative elements */}
-            <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full border border-primary/20 animate-slow-spin"></div>
-            <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] rounded-full border border-primary/10 animate-slow-spin-reverse"></div>
+            <motion.div
+              className="absolute -left-4 top-10 hidden rounded-full border border-white/50 bg-white/80 px-4 py-2 text-sm font-medium shadow-[0_16px_35px_-24px_rgba(15,23,42,0.35)] backdrop-blur md:block dark:border-white/10 dark:bg-slate-900/75"
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.15, duration: 0.5 }}
+            >
+              Product taste + engineering depth
+            </motion.div>
+            <motion.div
+              className="absolute -bottom-4 right-6 hidden rounded-full border border-white/50 bg-white/80 px-4 py-2 text-sm font-medium shadow-[0_16px_35px_-24px_rgba(15,23,42,0.35)] backdrop-blur md:block dark:border-white/10 dark:bg-slate-900/75"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.25, duration: 0.5 }}
+            >
+              Built to feel custom, not generic
+            </motion.div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer"
+        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 cursor-pointer flex-col items-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
+        transition={{ delay: 1.45, duration: 0.5 }}
         onClick={scrollToNext}
       >
-        <span className="text-sm text-muted-foreground mb-2">Scroll Down</span>
-        <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center p-1">
+        <span className="mb-2 text-sm text-muted-foreground">Scroll Into Ventures</span>
+        <div className="flex h-10 w-6 justify-center rounded-full border-2 border-muted-foreground p-1">
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}

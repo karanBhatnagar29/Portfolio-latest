@@ -19,9 +19,11 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "Professional Portfolio | Expert Developer",
-  description: "Professional portfolio showcasing expertise in web development, design, and digital solutions",
-  keywords: "portfolio, web developer, frontend, backend, full stack, UI/UX, design",
+  title: "Karan Bhatnagar | Full-Stack Developer & Co-Founder",
+  description:
+    "Portfolio of Karan Bhatnagar, a full-stack developer, founder of Junto, and co-founder building modern social products, marketplaces, and scalable digital experiences.",
+  keywords:
+    "Karan Bhatnagar, portfolio, Junto, social app founder, marketplace builder, Next.js developer, co-founder, UI UX, ecommerce",
     generator: 'v0.dev'
 }
 
