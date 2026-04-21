@@ -50,7 +50,7 @@ const aiDevOpsSkills = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
+    <section id="skills" className="relative overflow-hidden py-20 md:py-24">
       {/* Background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-[0.05]"></div>
@@ -84,29 +84,29 @@ export default function Skills() {
         </motion.div>
 
         <Tabs defaultValue="frontend" className="w-full max-w-5xl mx-auto">
-          <div className="flex justify-center mb-8">
-            <TabsList className="grid grid-cols-2 md:grid-cols-4 h-auto p-1">
+          <div className="mb-8 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <TabsList className="inline-grid h-auto min-w-max grid-flow-col gap-2 p-1 md:grid md:w-full md:grid-cols-4 md:gap-0">
               <TabsTrigger
                 value="frontend"
-                className="flex items-center gap-2 py-3"
+                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs sm:text-sm md:rounded-md"
               >
                 <Code2 className="h-4 w-4" /> Frontend
               </TabsTrigger>
               <TabsTrigger
                 value="backend"
-                className="flex items-center gap-2 py-3"
+                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs sm:text-sm md:rounded-md"
               >
                 <Server className="h-4 w-4" /> Backend
               </TabsTrigger>
               <TabsTrigger
                 value="mobile"
-                className="flex items-center gap-2 py-3"
+                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs sm:text-sm md:rounded-md"
               >
                 <Smartphone className="h-4 w-4" /> Mobile
               </TabsTrigger>
               <TabsTrigger
                 value="aidevops"
-                className="flex items-center gap-2 py-3"
+                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs sm:text-sm md:rounded-md"
               >
                 <Wrench className="h-4 w-4" /> AI & DevOps
               </TabsTrigger>
@@ -114,9 +114,9 @@ export default function Skills() {
           </div>
 
           <TabsContent value="frontend">
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="surface-card border-none shadow-lg">
+              <CardContent className="p-4 sm:p-5 md:p-6">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8">
                   {frontendSkills.map((skill, index) => (
                     <motion.div
                       key={skill.name}
@@ -161,9 +161,9 @@ export default function Skills() {
           </TabsContent>
 
           <TabsContent value="backend">
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="surface-card border-none shadow-lg">
+              <CardContent className="p-4 sm:p-5 md:p-6">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8">
                   {backendSkills.map((skill, index) => (
                     <motion.div
                       key={skill.name}
@@ -208,9 +208,9 @@ export default function Skills() {
           </TabsContent>
 
           <TabsContent value="mobile">
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="surface-card border-none shadow-lg">
+              <CardContent className="p-4 sm:p-5 md:p-6">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8">
                   {mobileSkills.map((skill, index) => (
                     <motion.div
                       key={skill.name}
@@ -245,9 +245,9 @@ export default function Skills() {
           </TabsContent>
 
           <TabsContent value="aidevops">
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="surface-card border-none shadow-lg">
+              <CardContent className="p-4 sm:p-5 md:p-6">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8">
                   {aiDevOpsSkills.map((skill, index) => (
                     <motion.div
                       key={skill.name}

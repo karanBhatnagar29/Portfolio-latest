@@ -83,7 +83,7 @@ const education = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 gradient-bg">
+    <section id="experience" className="gradient-bg py-20 md:py-24">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,16 +102,16 @@ export default function Experience() {
         </motion.div>
 
         <Tabs defaultValue="work" className="w-full max-w-4xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 mb-12">
+          <TabsList className="mb-8 grid w-full grid-cols-2 md:mb-12">
             <TabsTrigger
               value="work"
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="px-3 text-xs data-[state=active]:bg-primary data-[state=active]:text-primary-foreground sm:text-sm"
             >
               <Briefcase className="mr-2 h-4 w-4" /> Work Experience
             </TabsTrigger>
             <TabsTrigger
               value="education"
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="px-3 text-xs data-[state=active]:bg-primary data-[state=active]:text-primary-foreground sm:text-sm"
             >
               <GraduationCap className="mr-2 h-4 w-4" /> Education
             </TabsTrigger>
@@ -124,7 +124,7 @@ export default function Experience() {
           </TabsList>
 
           <TabsContent value="work">
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               {workExperience.map((job, index) => (
                 <motion.div
                   key={job.id}
@@ -134,7 +134,7 @@ export default function Experience() {
                   viewport={{ once: true }}
                   className="card-hover"
                 >
-                  <Card>
+                  <Card className="surface-card overflow-hidden">
                     <CardContent className="p-0">
                       <div className="md:flex">
                         <div className="md:w-64 p-6 border-r bg-muted/30 hidden md:block">
@@ -163,8 +163,8 @@ export default function Experience() {
                             </div>
                           </div>
                         </div>
-                        <div className="flex-1 p-6">
-                          <div className="md:hidden flex items-center mb-4">
+                        <div className="flex-1 p-4 sm:p-5 md:p-6">
+                          <div className="mb-4 flex items-center md:hidden">
                             <div className="w-12 h-12 bg-background rounded-full flex items-center justify-center mr-4 border">
                               <img
                                 src={
@@ -177,18 +177,18 @@ export default function Experience() {
                             </div>
                             <div>
                               <h4 className="font-medium">{job.company}</h4>
-                              <div className="flex flex-wrap gap-2 mt-1">
+                              <div className="mt-1 flex flex-wrap gap-2">
                                 <Badge variant="outline">{job.duration}</Badge>
                                 <Badge variant="secondary">{job.type}</Badge>
                               </div>
                             </div>
                           </div>
 
-                          <h3 className="text-xl font-medium mb-4">
+                          <h3 className="mb-4 text-lg font-medium sm:text-xl">
                             {job.title}
                           </h3>
 
-                          <ul className="list-disc pl-5 space-y-2 mb-6">
+                          <ul className="mb-6 list-disc space-y-2 pl-5">
                             {job.description.map((item, i) => (
                               <li key={i} className="text-muted-foreground">
                                 {item}
@@ -217,7 +217,7 @@ export default function Experience() {
           </TabsContent>
 
           <TabsContent value="education">
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               {education.map((edu, index) => (
                 <motion.div
                   key={edu.id}
@@ -227,7 +227,7 @@ export default function Experience() {
                   viewport={{ once: true }}
                   className="card-hover"
                 >
-                  <Card>
+                  <Card className="surface-card overflow-hidden">
                     <CardContent className="p-0">
                       <div className="md:flex">
                         <div className="md:w-64 p-6 border-r bg-muted/30 hidden md:block">
@@ -256,8 +256,8 @@ export default function Experience() {
                             </div>
                           </div>
                         </div>
-                        <div className="flex-1 p-6">
-                          <div className="md:hidden flex items-center mb-4">
+                        <div className="flex-1 p-4 sm:p-5 md:p-6">
+                          <div className="mb-4 flex items-center md:hidden">
                             <div className="w-12 h-12 bg-background rounded-full flex items-center justify-center mr-4 border">
                               <img
                                 src={
@@ -270,7 +270,7 @@ export default function Experience() {
                             </div>
                             <div>
                               <h4 className="font-medium">{edu.institution}</h4>
-                              <div className="flex flex-wrap gap-2 mt-1">
+                              <div className="mt-1 flex flex-wrap gap-2">
                                 <Badge variant="outline">{edu.duration}</Badge>
                                 <Badge variant="secondary">
                                   GPA: {edu.gpa}
@@ -279,7 +279,7 @@ export default function Experience() {
                             </div>
                           </div>
 
-                          <h3 className="text-xl font-medium mb-4">
+                          <h3 className="mb-4 text-lg font-medium sm:text-xl">
                             {edu.degree}
                           </h3>
                           <p className="text-muted-foreground mb-6">

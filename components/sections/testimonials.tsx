@@ -69,7 +69,7 @@ export default function Testimonials() {
   const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section id="testimonials" className="py-24">
+    <section id="testimonials" className="py-20 md:py-24">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -97,11 +97,11 @@ export default function Testimonials() {
                 onMouseEnter={() => setAutoplay(false)}
                 onMouseLeave={() => setAutoplay(true)}
               >
-                <Card className="border shadow-lg">
-                  <CardContent className="p-8">
-                    <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                <Card className="surface-card border shadow-lg">
+                  <CardContent className="p-5 sm:p-6 md:p-8">
+                    <div className="flex flex-col items-center gap-6 md:flex-row md:items-start md:gap-8">
                       <div className="relative">
-                        <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-background shadow-lg">
+                        <div className="h-20 w-20 overflow-hidden rounded-full border-4 border-background shadow-lg sm:h-24 sm:w-24">
                           <img
                             src={
                               currentTestimonial.image ||
@@ -117,14 +117,14 @@ export default function Testimonials() {
                       </div>
 
                       <div className="flex-1">
-                        <blockquote className="text-lg italic mb-6 relative">
-                          <div className="absolute -left-4 top-0 text-6xl text-primary/10">"</div>
+                        <blockquote className="relative mb-6 text-base italic sm:text-lg">
+                          <div className="absolute -left-2 top-0 text-5xl text-primary/10 sm:-left-4 sm:text-6xl">"</div>
                           <div className="relative z-10">{currentTestimonial.text}</div>
-                          <div className="absolute -right-4 bottom-0 text-6xl text-primary/10">"</div>
+                          <div className="absolute -right-2 bottom-0 text-5xl text-primary/10 sm:-right-4 sm:text-6xl">"</div>
                         </blockquote>
 
                         <div className="border-t pt-4">
-                          <h4 className="font-medium text-lg">{currentTestimonial.name}</h4>
+                          <h4 className="text-lg font-medium">{currentTestimonial.name}</h4>
                           <p className="text-muted-foreground">{currentTestimonial.position}</p>
                           <p className="text-primary text-sm font-medium">{currentTestimonial.company}</p>
                         </div>
@@ -135,13 +135,13 @@ export default function Testimonials() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex justify-center items-center mt-8 space-x-4">
+            <div className="mt-8 flex items-center justify-center space-x-3 sm:space-x-4">
               <Button
                 variant="outline"
                 size="icon"
                 onClick={prevTestimonial}
                 aria-label="Previous testimonial"
-                className="rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="h-10 w-10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors sm:h-11 sm:w-11"
               >
                 <ChevronLeft className="h-5 w-5" />
               </Button>
@@ -152,7 +152,7 @@ export default function Testimonials() {
                     key={index}
                     variant="ghost"
                     size="sm"
-                    className={`w-2.5 h-2.5 rounded-full p-0 ${
+                    className={`h-2.5 w-2.5 rounded-full p-0 ${
                       index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
                     }`}
                     onClick={() => {
@@ -169,7 +169,7 @@ export default function Testimonials() {
                 size="icon"
                 onClick={nextTestimonial}
                 aria-label="Next testimonial"
-                className="rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="h-10 w-10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors sm:h-11 sm:w-11"
               >
                 <ChevronRight className="h-5 w-5" />
               </Button>

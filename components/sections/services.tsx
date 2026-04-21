@@ -90,7 +90,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-24 bg-muted/30 relative overflow-hidden"
+      className="py-10 md:py-24 bg-muted/30 relative overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute inset-0 -z-10">
@@ -103,7 +103,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-8 text-center md:mb-16"
         >
           <Badge
             variant="outline"
@@ -111,11 +111,11 @@ export default function Services() {
           >
             Services & Advisory
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold font-heading mb-3 md:mb-4">
             What I Can Help You Build
           </h2>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="h-1 w-16 bg-primary mx-auto rounded-full mb-4 md:mb-6"></div>
+          <p className="text-sm leading-6 text-muted-foreground max-w-2xl mx-auto md:text-base md:leading-7">
             From founder advisory and tech counselling to full-stack execution,
             I help shape and ship digital products with stronger decisions and
             cleaner implementation.
@@ -123,7 +123,7 @@ export default function Services() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="mobile-rail md:grid md:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -133,23 +133,23 @@ export default function Services() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group surface-card rounded-[1.75rem] p-6 transition-all duration-300 hover:-translate-y-1"
+              className="mobile-rail-card group surface-card rounded-[1.75rem] p-5 transition-all duration-300 hover:-translate-y-1 md:p-6"
             >
-              <div className="bg-primary/10 p-4 rounded-lg inline-block mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white md:mb-6 md:p-4">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className="text-muted-foreground mb-6">
+              <h3 className="mb-3 text-lg font-bold md:text-xl">{service.title}</h3>
+              <p className="mb-5 text-sm leading-6 text-muted-foreground md:mb-6 md:text-base">
                 {service.description}
               </p>
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="mb-5 flex flex-wrap gap-2 md:mb-6">
                 {service.technologies.map((tech, i) => (
                   <Badge key={i} variant="secondary" className="bg-muted/50">
                     {tech}
                   </Badge>
                 ))}
               </div>
-              <Button variant="ghost" size="sm" className="group/btn">
+              <Button variant="ghost" size="sm" className="group/btn px-0">
                 Learn more
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
               </Button>

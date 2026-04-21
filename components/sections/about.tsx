@@ -25,7 +25,7 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative overflow-hidden py-20 md:py-24"
+      className="relative overflow-hidden py-10 md:py-24"
     >
       {/* Background elements */}
       <div className="absolute inset-0 -z-10">
@@ -43,7 +43,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-8 text-center md:mb-16"
         >
           <Badge
             variant="outline"
@@ -51,13 +51,13 @@ export default function About() {
           >
             About Me
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+          <h2 className="mb-3 text-2xl font-bold font-heading md:mb-4 md:text-4xl">
             Crafting Digital Experiences with Passion
           </h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 items-center">
+        <div className="grid grid-cols-1 items-center gap-7 md:grid-cols-2 md:gap-12">
           {/* Enhanced Image Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -97,11 +97,11 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6 font-heading">
+            <h3 className="mb-4 text-xl font-bold font-heading md:mb-6 md:text-2xl">
               Transforming Ideas into Exceptional Digital Solutions
             </h3>
 
-            <p className="text-muted-foreground mb-4">
+            <p className="mb-3 text-sm leading-6 text-muted-foreground md:mb-4 md:text-base md:leading-7">
               I'm a Full Stack Developer with{" "}
               <strong className="text-foreground">
                 3+ years of experience
@@ -112,7 +112,7 @@ export default function About() {
               fully automated CI/CD pipelines.
             </p>
 
-            <p className="text-muted-foreground mb-4">
+            <p className="mb-3 text-sm leading-6 text-muted-foreground md:mb-4 md:text-base md:leading-7">
               <strong className="text-primary text-base">
                 I actively use AI to build full stack projects
               </strong>{" "}
@@ -123,34 +123,34 @@ export default function About() {
               time.
             </p>
 
-            <p className="text-muted-foreground mb-8">
+            <p className="mb-6 text-sm leading-6 text-muted-foreground md:mb-8 md:text-base md:leading-7">
               I'm passionate about clean, maintainable code and intuitive
               interfaces. Whether it's a cross-platform mobile app or a
               cloud-deployed web platform, I focus on turning ideas into
               polished digital products that work flawlessly and look great.
             </p>
 
-            <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
-              <div className="bg-muted/30 p-4 rounded-lg">
+            <div className="mobile-rail mb-6 sm:grid sm:grid-cols-2 sm:gap-6 md:mb-8">
+              <div className="mobile-rail-card rounded-lg bg-muted/30 p-4">
                 <h4 className="font-semibold mb-2">Frontend Development</h4>
                 <p className="text-sm text-muted-foreground">
                   React, Next.js, Tailwind CSS, TypeScript — responsive and
                   accessible interfaces
                 </p>
               </div>
-              <div className="bg-muted/30 p-4 rounded-lg">
+              <div className="mobile-rail-card rounded-lg bg-muted/30 p-4">
                 <h4 className="font-semibold mb-2">Backend &amp; Cloud</h4>
                 <p className="text-sm text-muted-foreground">
                   NestJS, PostgreSQL, MongoDB, Supabase, AWS EC2, CI/CD
                 </p>
               </div>
-              <div className="bg-muted/30 p-4 rounded-lg">
+              <div className="mobile-rail-card rounded-lg bg-muted/30 p-4">
                 <h4 className="font-semibold mb-2">React Native Apps</h4>
                 <p className="text-sm text-muted-foreground">
                   Cross-platform iOS &amp; Android mobile app development
                 </p>
               </div>
-              <div className="bg-muted/30 p-4 rounded-lg border border-primary/30">
+              <div className="mobile-rail-card rounded-lg border border-primary/30 bg-muted/30 p-4">
                 <h4 className="font-semibold mb-2 text-primary">
                   AI-Driven Development
                 </h4>

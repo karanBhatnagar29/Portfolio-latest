@@ -82,7 +82,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden py-20 md:py-24"
+      className="relative flex min-h-[calc(100svh-5.5rem)] items-center overflow-hidden py-8 md:min-h-screen md:py-24"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-[8%] top-28 h-56 w-56 rounded-full bg-amber-400/20 blur-3xl" />
@@ -91,7 +91,7 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid items-center gap-6 md:gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -103,14 +103,14 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <span className="eyebrow">
+              <span className="eyebrow px-3 py-2 text-[0.65rem] sm:px-4 sm:py-2.5 sm:text-xs">
                 <Sparkles className="h-3.5 w-3.5" />
                 Contact for tech counselling
               </span>
             </motion.div>
 
             <motion.h1
-              className="mt-7 text-4xl font-bold tracking-[-0.06em] sm:text-5xl md:text-6xl lg:text-7xl"
+              className="mt-5 text-[2.5rem] font-bold tracking-[-0.06em] sm:text-5xl md:mt-7 md:text-6xl lg:text-7xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.35, duration: 0.7 }}
@@ -122,7 +122,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-foreground lg:mx-0 lg:text-xl lg:leading-8"
+              className="mx-auto mt-4 max-w-2xl text-[0.95rem] leading-6 text-muted-foreground lg:mx-0 lg:mt-6 lg:text-xl lg:leading-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.7 }}
@@ -133,7 +133,7 @@ export default function Hero() {
             </motion.p>
 
             <motion.div
-              className="mx-auto mt-7 flex min-h-[3.5rem] max-w-2xl items-center justify-center rounded-[1.5rem] border border-border/80 bg-background/70 px-4 py-4 text-left shadow-[0_20px_45px_-35px_rgba(15,23,42,0.25)] backdrop-blur lg:mx-0 lg:justify-start lg:px-5"
+              className="mx-auto mt-5 flex min-h-[3.15rem] max-w-2xl items-center justify-center rounded-[1.35rem] border border-border/80 bg-background/75 px-4 py-3 text-left shadow-[0_20px_45px_-35px_rgba(15,23,42,0.25)] backdrop-blur lg:mx-0 lg:mt-7 lg:min-h-[3.5rem] lg:justify-start lg:px-5 lg:py-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.65, duration: 0.7 }}
@@ -149,7 +149,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start"
+              className="mobile-rail mt-5 justify-start lg:mt-8 lg:flex lg:flex-wrap lg:overflow-visible lg:gap-3"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.7 }}
@@ -157,7 +157,7 @@ export default function Hero() {
               {quickNotes.map((note) => (
                 <div
                   key={note}
-                  className="rounded-full border border-border/80 bg-background/75 px-4 py-2 text-xs font-medium text-muted-foreground shadow-[0_14px_30px_-22px_rgba(15,23,42,0.2)] backdrop-blur sm:text-sm"
+                  className="mobile-rail-card rounded-full border border-border/80 bg-background/75 px-4 py-2 text-xs font-medium text-muted-foreground shadow-[0_14px_30px_-22px_rgba(15,23,42,0.2)] backdrop-blur sm:min-w-0 sm:text-sm"
                 >
                   {note}
                 </div>
@@ -165,24 +165,24 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4 lg:justify-start"
+              className="mt-6 flex flex-col justify-center gap-2.5 sm:flex-row sm:flex-wrap sm:gap-4 lg:mt-8 lg:justify-start"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.95, duration: 0.7 }}
             >
-              <Button size="lg" className="rounded-full group" asChild>
+              <Button size="lg" className="group h-12 rounded-[1rem] sm:rounded-full" asChild>
                 <a href="#projects">
                   Explore My Work
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full" asChild>
+              <Button size="lg" variant="outline" className="h-12 rounded-[1rem] sm:rounded-full" asChild>
                 <a href="#contact">Discuss a project</a>
               </Button>
             </motion.div>
 
             <motion.div
-              className="mt-8 flex items-center justify-center space-x-3 lg:justify-start lg:space-x-4"
+              className="mt-6 flex items-center justify-center space-x-3 lg:mt-8 lg:justify-start lg:space-x-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1, duration: 0.7 }}
@@ -221,12 +221,12 @@ export default function Hero() {
             transition={{ duration: 0.75, delay: 0.35 }}
             className="relative"
           >
-            <div className="surface-panel relative overflow-hidden rounded-[2rem] p-3 sm:p-4 md:rounded-[2.25rem] md:p-5">
+            <div className="surface-panel relative overflow-hidden rounded-[1.7rem] p-2.5 sm:p-4 md:rounded-[2.25rem] md:p-5">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.14),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.16),_transparent_30%)]" />
               <div className="relative grid gap-4">
-                <div className="surface-card relative overflow-hidden rounded-[1.4rem] p-3 sm:p-4 md:rounded-[1.8rem]">
+                <div className="surface-card relative overflow-hidden rounded-[1.2rem] p-3 sm:p-4 md:rounded-[1.8rem]">
                   <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02),transparent)]" />
-                  <div className="relative grid gap-4 md:grid-cols-[0.95fr_1.05fr] md:items-center">
+                  <div className="relative grid gap-3 md:grid-cols-[0.95fr_1.05fr] md:items-center md:gap-4">
                     <div className="rounded-[1.2rem] bg-[linear-gradient(145deg,rgba(7,44,37,0.95),rgba(20,78,65,0.9))] p-3 md:rounded-[1.5rem]">
                       <img
                         src="/me.jpeg"
@@ -234,7 +234,7 @@ export default function Hero() {
                         className="aspect-[4/5] w-full rounded-[1.1rem] object-cover"
                       />
                     </div>
-                    <div className="space-y-4 text-left">
+                    <div className="space-y-3 text-left md:space-y-4">
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                           Selected Identity
@@ -272,7 +272,7 @@ export default function Hero() {
                   </div>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
+                <div className="hidden gap-4 md:grid md:grid-cols-[1.1fr_0.9fr]">
                   <div className="surface-card rounded-[1.4rem] p-4 sm:p-5 md:rounded-[1.6rem]">
                     <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
                       <Globe2 className="h-4 w-4" />

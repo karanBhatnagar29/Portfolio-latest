@@ -76,19 +76,19 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-24 gradient-bg">
+    <section id="contact" className="py-10 md:py-24 gradient-bg">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-8 text-center md:mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-heading font-bold section-title mx-auto">
             Get In Touch
           </h2>
-          <p className="mt-8 text-muted-foreground max-w-2xl mx-auto">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-muted-foreground md:mt-8 md:text-base md:leading-7">
             Need product clarity, technical direction, or a strong builder for
             your next launch? Reach out for tech counselling, founder advisory,
             or hands-on execution.

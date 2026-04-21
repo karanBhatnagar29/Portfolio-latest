@@ -17,24 +17,42 @@ export default function Home() {
     <>
       <div className="container mx-auto px-4">
         <Hero />
-        <FounderVentures />
-        <WorkWithMe />
-        <About />
+        <div className="mobile-section-shell overflow-hidden md:contents">
+          <FounderVentures />
+          <WorkWithMe />
+        </div>
+        <div className="mobile-section-shell overflow-hidden md:contents">
+          <About />
+        </div>
       </div>
-      <Services />
+      <div className="mobile-section-shell mx-2 md:mx-0 md:contents">
+        <Services />
+      </div>
       <div className="container mx-auto px-4">
-        <Skills />
-        <WhoIHelp />
+        <div className="mobile-section-shell overflow-hidden md:contents">
+          <Skills />
+          <WhoIHelp />
+        </div>
       </div>
-      <Stats />
+      <div className="mobile-section-shell mx-2 md:mx-0 md:contents">
+        <Stats />
+      </div>
       <div className="container mx-auto px-4">
-        <Projects />
+        <div className="mobile-section-shell overflow-hidden md:contents">
+          <Projects />
+        </div>
       </div>
-      <Experience />
+      <div className="mobile-section-shell mx-2 md:mx-0 md:contents">
+        <Experience />
+      </div>
       <div className="container mx-auto px-4">
-        <Testimonials />
+        <div className="mobile-section-shell overflow-hidden md:contents">
+          <Testimonials />
+        </div>
       </div>
-      <Contact />
+      <div className="mobile-section-shell mx-2 md:mx-0 md:contents">
+        <Contact />
+      </div>
       <BackToTop />
     </>
   )

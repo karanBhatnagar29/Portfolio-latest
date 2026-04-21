@@ -4,6 +4,7 @@ import { Inter, Montserrat } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import MobileBottomNav from "@/components/mobile-bottom-nav"
 import { Toaster } from "@/components/ui/toaster"
 import "./globals.css"
 
@@ -38,7 +39,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen flex-col bg-background transition-colors duration-300">
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pb-28 md:pb-0">{children}</main>
+            <MobileBottomNav />
             <Footer />
             <Toaster />
           </div>

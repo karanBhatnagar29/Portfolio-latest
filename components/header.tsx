@@ -49,7 +49,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full px-3 pt-3 transition-all duration-300 md:px-5">
       <div className="container mx-auto">
         <div
-          className={`surface-panel flex h-20 items-center justify-between rounded-full px-4 md:px-6 ${
+          className={`surface-panel flex h-16 items-center justify-between rounded-[1.7rem] px-3.5 md:h-20 md:rounded-full md:px-6 ${
             isScrolled ? "shadow-[0_24px_60px_-42px_rgba(15,23,42,0.5)]" : ""
           }`}
         >
@@ -60,12 +60,12 @@ export default function Header() {
             className="flex items-center"
           >
             <Link href="/" className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/20">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 md:h-11 md:w-11 md:text-base">
                 KB
               </span>
-              <div className="hidden sm:block">
-                <p className="text-lg font-bold tracking-[-0.04em]">Karan Bhatnagar</p>
-                <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+              <div>
+                <p className="text-base font-bold tracking-[-0.04em] md:text-lg">Karan Bhatnagar</p>
+                <p className="hidden text-xs uppercase tracking-[0.22em] text-muted-foreground sm:block">
                   Founder, Builder, Product Engineer
                 </p>
               </div>
@@ -100,13 +100,14 @@ export default function Header() {
             </Button>
           </div>
 
-          <div className="flex items-center space-x-2 md:hidden">
+          <div className="flex items-center space-x-1.5 md:hidden">
             <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
+              className="rounded-2xl"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
