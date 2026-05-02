@@ -16,7 +16,7 @@ const frontendSkills = [
   { name: "Tailwind CSS", level: 90, icon: "tailwind" },
   { name: "shadcn/ui", level: 88, icon: "shadcn" },
   { name: "Redux", level: 82, icon: "redux" },
-  { name: "Bun.js", level: 78, icon: "bun" },
+  { name: "Modern JS Tooling", level: 78, icon: "tooling" },
 ];
 
 const backendSkills = [
@@ -48,65 +48,134 @@ const aiDevOpsSkills = [
   { name: "Docker", level: 68, icon: "docker" },
 ];
 
+const stackHighlights = [
+  "Next.js",
+  "Supabase",
+  "Modern tooling",
+  "React Native",
+  "NestJS",
+  "shadcn/ui",
+  "AI-assisted builds",
+  "AWS EC2",
+];
+
+function SkillCloud({
+  skills,
+  tone,
+}: {
+  skills: typeof frontendSkills;
+  tone: "primary" | "accent" | "dark";
+}) {
+  const toneClass =
+    tone === "accent"
+      ? "bg-accent text-accent-foreground border-accent"
+      : tone === "dark"
+        ? "bg-foreground text-background border-foreground"
+        : "bg-primary text-primary-foreground border-primary";
+
+  return (
+    <Card className="overflow-hidden rounded-[1.5rem] border bg-card shadow-[0_24px_70px_-52px_rgba(15,23,42,0.45)]">
+      <CardContent className="p-4 sm:p-5 md:p-6">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, y: 12, rotate: index % 2 === 0 ? -1 : 1 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.04 }}
+              viewport={{ once: true }}
+              className={`group relative overflow-hidden rounded-[1.1rem] border p-4 transition duration-300 hover:-translate-y-1 ${
+                index % 5 === 0
+                  ? toneClass
+                  : "border-border/80 bg-muted/30 hover:border-foreground/20"
+              }`}
+            >
+              <div className="absolute -right-8 -top-8 h-20 w-20 rotate-12 border border-current/10" />
+              <p className="text-xs font-black uppercase tracking-[0.22em] opacity-60">
+                0{(index % 9) + 1}
+              </p>
+              <h3 className="mt-3 text-lg font-black tracking-[-0.05em]">
+                {skill.name}
+              </h3>
+              <p className="mt-2 text-sm leading-6 opacity-70">
+                Used in real product builds, not parked in a keyword list.
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function Skills() {
   return (
     <section id="skills" className="relative overflow-hidden py-20 md:py-24">
-      {/* Background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-[0.05]"></div>
-        <div className="absolute top-1/3 right-0 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl opacity-30"></div>
-        <div className="absolute bottom-1/3 left-0 w-80 h-80 bg-primary/20 rounded-full filter blur-3xl opacity-30"></div>
-      </div>
-
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-10 text-center md:mb-14"
         >
           <Badge
             variant="outline"
-            className="mb-4 px-3 py-1 text-sm border-primary/20 bg-primary/5"
+            className="mb-4 rounded-full border-foreground bg-foreground px-4 py-2 text-sm text-background"
           >
-            My Skills
+            Stack Mixtape
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-            Technical Expertise
+          <h2 className="mx-auto max-w-4xl text-3xl font-black leading-[0.95] tracking-[-0.06em] md:text-6xl">
+            The tools are serious.
+            <span className="block italic gradient-text">The interface does not have to be boring.</span>
           </h2>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            With expertise across multiple technologies and disciplines, I bring
-            a comprehensive skill set to every project, ensuring high-quality,
-            innovative solutions.
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-muted-foreground md:text-lg md:leading-7">
+            A practical stack for shipping clean web apps, mobile experiences,
+            backend systems, and AI-assisted product iterations.
           </p>
         </motion.div>
 
-        <Tabs defaultValue="frontend" className="w-full max-w-5xl mx-auto">
+        <div className="mobile-rail mb-7 md:flex md:flex-wrap md:justify-center md:overflow-visible">
+          {stackHighlights.map((item, index) => (
+            <div
+              key={item}
+              className={`mobile-rail-card rounded-full border px-4 py-2 text-sm font-black tracking-[-0.02em] shadow-[0_18px_42px_-32px_rgba(15,23,42,0.38)] md:min-w-0 ${
+                index % 3 === 0
+                  ? "border-foreground bg-foreground text-background"
+                  : index % 3 === 1
+                    ? "border-accent bg-accent text-accent-foreground"
+                    : "border-border bg-background"
+              }`}
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+
+        <Tabs defaultValue="frontend" className="w-full max-w-6xl mx-auto">
           <div className="mb-8 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <TabsList className="inline-grid h-auto min-w-max grid-flow-col gap-2 p-1 md:grid md:w-full md:grid-cols-4 md:gap-0">
+            <TabsList className="inline-grid h-auto min-w-max grid-flow-col gap-2 rounded-full border border-border bg-background/80 p-1 md:grid md:w-full md:grid-cols-4">
               <TabsTrigger
                 value="frontend"
-                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs sm:text-sm md:rounded-md"
+                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs font-black sm:text-sm"
               >
                 <Code2 className="h-4 w-4" /> Frontend
               </TabsTrigger>
               <TabsTrigger
                 value="backend"
-                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs sm:text-sm md:rounded-md"
+                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs font-black sm:text-sm"
               >
                 <Server className="h-4 w-4" /> Backend
               </TabsTrigger>
               <TabsTrigger
                 value="mobile"
-                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs sm:text-sm md:rounded-md"
+                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs font-black sm:text-sm"
               >
                 <Smartphone className="h-4 w-4" /> Mobile
               </TabsTrigger>
               <TabsTrigger
                 value="aidevops"
-                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs sm:text-sm md:rounded-md"
+                className="flex items-center gap-2 rounded-full px-4 py-3 text-xs font-black sm:text-sm"
               >
                 <Wrench className="h-4 w-4" /> AI & DevOps
               </TabsTrigger>
@@ -114,171 +183,19 @@ export default function Skills() {
           </div>
 
           <TabsContent value="frontend">
-            <Card className="surface-card border-none shadow-lg">
-              <CardContent className="p-4 sm:p-5 md:p-6">
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8">
-                  {frontendSkills.map((skill, index) => (
-                    <motion.div
-                      key={skill.name}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="group"
-                    >
-                      <div className="flex justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          {/* <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center text-primary">
-                            <img
-                              src={`/icons/${skill.icon}.svg`}
-                              alt={skill.name}
-                              className="w-5 h-5"
-                              onError={(e) => {
-                                ;(e.target as HTMLImageElement).src = "/icons/code.svg"
-                              }}
-                            />
-                          </div> */}
-                          <span className="font-medium">{skill.name}</span>
-                        </div>
-                        <span className="text-muted-foreground group-hover:text-primary transition-colors">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-muted rounded-full h-2.5 overflow-hidden">
-                        <motion.div
-                          className="bg-primary h-2.5 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: 0.5 }}
-                          viewport={{ once: true }}
-                        ></motion.div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <SkillCloud skills={frontendSkills} tone="primary" />
           </TabsContent>
 
           <TabsContent value="backend">
-            <Card className="surface-card border-none shadow-lg">
-              <CardContent className="p-4 sm:p-5 md:p-6">
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8">
-                  {backendSkills.map((skill, index) => (
-                    <motion.div
-                      key={skill.name}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="group"
-                    >
-                      <div className="flex justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          {/* <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center text-primary">
-                            <img
-                              src={`/icons/${skill.icon}.svg`}
-                              alt={skill.name}
-                              className="w-5 h-5"
-                              onError={(e) => {
-                                ;(e.target as HTMLImageElement).src = "/icons/server.svg"
-                              }}
-                            />
-                          </div> */}
-                          <span className="font-medium">{skill.name}</span>
-                        </div>
-                        <span className="text-muted-foreground group-hover:text-primary transition-colors">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-muted rounded-full h-2.5 overflow-hidden">
-                        <motion.div
-                          className="bg-primary h-2.5 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: 0.5 }}
-                          viewport={{ once: true }}
-                        ></motion.div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <SkillCloud skills={backendSkills} tone="accent" />
           </TabsContent>
 
           <TabsContent value="mobile">
-            <Card className="surface-card border-none shadow-lg">
-              <CardContent className="p-4 sm:p-5 md:p-6">
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8">
-                  {mobileSkills.map((skill, index) => (
-                    <motion.div
-                      key={skill.name}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="group"
-                    >
-                      <div className="flex justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <span className="font-medium">{skill.name}</span>
-                        </div>
-                        <span className="text-muted-foreground group-hover:text-primary transition-colors">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-muted rounded-full h-2.5 overflow-hidden">
-                        <motion.div
-                          className="bg-primary h-2.5 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: 0.5 }}
-                          viewport={{ once: true }}
-                        ></motion.div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <SkillCloud skills={mobileSkills} tone="dark" />
           </TabsContent>
 
           <TabsContent value="aidevops">
-            <Card className="surface-card border-none shadow-lg">
-              <CardContent className="p-4 sm:p-5 md:p-6">
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8">
-                  {aiDevOpsSkills.map((skill, index) => (
-                    <motion.div
-                      key={skill.name}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="group"
-                    >
-                      <div className="flex justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <span className="font-medium">{skill.name}</span>
-                        </div>
-                        <span className="text-muted-foreground group-hover:text-primary transition-colors">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-muted rounded-full h-2.5 overflow-hidden">
-                        <motion.div
-                          className="bg-primary h-2.5 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: 0.5 }}
-                          viewport={{ once: true }}
-                        ></motion.div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <SkillCloud skills={aiDevOpsSkills} tone="primary" />
           </TabsContent>
         </Tabs>
       </div>

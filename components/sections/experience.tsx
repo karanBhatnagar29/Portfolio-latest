@@ -9,26 +9,31 @@ import { Briefcase, GraduationCap, Award } from "lucide-react";
 const workExperience = [
   {
     id: 1,
-    title: "Full Stack Engineer",
-    company: "Altura Labz",
+    title: "Full-Stack & Mobile Developer",
+    company: "AlturaLabz",
     logo: "/aLabz_logo.jpeg",
     location: "WFH",
     type: "Full-time",
     duration: "Jan 2025 - Present",
+    summary:
+      "Building admin systems, APIs, React Native apps, and AI-powered product surfaces across production workflows.",
     description: [
-      "Developed internal Admin Panel using Next.js Tailwind CSS and Shadcn for managing customer data and workflows. ",
-      "Built modular Agency Panel with real-time dashboards and reusable components. ",
-      "Mentored a team of 5 junior developers, conducting code reviews and implementing best practices that improved code quality and reduced bugs by 35%",
-      "Collaborated with product and design teams to create intuitive user interfaces, resulting in a 20% improvement in user satisfaction scores",
+      "Admin panels, RBAC backend systems, NestJS monorepo architecture, REST APIs, and data-heavy dashboard optimization.",
+      "React Native delivery across backend-integrated apps, PDF editing workflows, and AI-powered learning/problem-solving products.",
+      "AI-driven web platform work, including dynamic UI generation from user prompts and performance improvements with caching and Zustand.",
     ],
     skills: [
       "React",
       "Next.js",
       "TypeScript",
-      "Nest.js",
+      "NestJS",
+      "React Native",
       "Tailwind CSS",
-      "Shadcn",
+      "shadcn/ui",
+      "Zustand",
       "MongoDB",
+      "REST APIs",
+      "RBAC",
     ],
   },
 ];
@@ -83,35 +88,39 @@ const education = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="gradient-bg py-20 md:py-24">
+    <section id="experience" className="py-20 md:py-24">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-10 text-center md:mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold section-title mx-auto">
-            Experience & Education
+          <Badge className="mb-4 rounded-full bg-accent px-4 py-2 text-accent-foreground">
+            Receipt Check
+          </Badge>
+          <h2 className="mx-auto max-w-4xl text-3xl font-black leading-[0.95] tracking-[-0.06em] md:text-6xl">
+            Proof I can sit inside a team
+            <span className="block italic gradient-text">and still ship with taste.</span>
           </h2>
-          <p className="mt-8 text-muted-foreground max-w-2xl mx-auto">
-            My professional journey, educational background, and notable
-            achievements
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-muted-foreground md:text-lg md:leading-7">
+            Work history, education, and the practical context behind the
+            product decisions.
           </p>
         </motion.div>
 
-        <Tabs defaultValue="work" className="w-full max-w-4xl mx-auto">
-          <TabsList className="mb-8 grid w-full grid-cols-2 md:mb-12">
+        <Tabs defaultValue="work" className="w-full max-w-5xl mx-auto">
+          <TabsList className="mb-8 grid w-full grid-cols-2 rounded-[1rem] border border-border bg-background/80 p-1 md:mb-12">
             <TabsTrigger
               value="work"
-              className="px-3 text-xs data-[state=active]:bg-primary data-[state=active]:text-primary-foreground sm:text-sm"
+              className="rounded-[0.8rem] px-3 text-xs font-black data-[state=active]:bg-foreground data-[state=active]:text-background sm:text-sm"
             >
               <Briefcase className="mr-2 h-4 w-4" /> Work Experience
             </TabsTrigger>
             <TabsTrigger
               value="education"
-              className="px-3 text-xs data-[state=active]:bg-primary data-[state=active]:text-primary-foreground sm:text-sm"
+              className="rounded-[0.8rem] px-3 text-xs font-black data-[state=active]:bg-foreground data-[state=active]:text-background sm:text-sm"
             >
               <GraduationCap className="mr-2 h-4 w-4" /> Education
             </TabsTrigger>
@@ -134,30 +143,30 @@ export default function Experience() {
                   viewport={{ once: true }}
                   className="card-hover"
                 >
-                  <Card className="surface-card overflow-hidden">
+                  <Card className="overflow-hidden rounded-[1.5rem] border bg-card shadow-[0_24px_70px_-52px_rgba(15,23,42,0.45)]">
                     <CardContent className="p-0">
                       <div className="md:flex">
-                        <div className="md:w-64 p-6 border-r bg-muted/30 hidden md:block">
+                        <div className="hidden border-r bg-foreground p-6 text-background md:block md:w-64">
                           <div className="flex items-center justify-center h-full">
                             <div className="text-center">
-                              <div className="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-4 border">
+                              <div className="mx-auto mb-4 flex h-16 w-16 rotate-[-4deg] items-center justify-center rounded-[1rem] border border-background/20 bg-background">
                                 <img
                                   src={
                                     job.logo ||
                                     `/placeholder.svg?height=64&width=64&query=${job.company} logo`
                                   }
                                   alt={job.company}
-                                  className="w-10 h-10 rounded-full"
+                                  className="h-10 w-10 rounded-full"
                                 />
                               </div>
-                              <h4 className="font-medium">{job.company}</h4>
-                              <p className="text-sm text-muted-foreground">
+                              <h4 className="font-black">{job.company}</h4>
+                              <p className="text-sm text-background/60">
                                 {job.location}
                               </p>
-                              <Badge variant="outline" className="mt-2">
+                              <Badge className="mt-3 rounded-full bg-background text-foreground">
                                 {job.duration}
                               </Badge>
-                              <Badge variant="secondary" className="mt-2 ml-2">
+                              <Badge variant="outline" className="ml-2 mt-3 rounded-full border-background/20 text-background">
                                 {job.type}
                               </Badge>
                             </div>
@@ -184,28 +193,46 @@ export default function Experience() {
                             </div>
                           </div>
 
-                          <h3 className="mb-4 text-lg font-medium sm:text-xl">
-                            {job.title}
-                          </h3>
+                          <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                            <div>
+                              <h3 className="text-2xl font-black tracking-[-0.05em] sm:text-3xl">
+                                {job.title}
+                              </h3>
+                              <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+                                {job.summary}
+                              </p>
+                            </div>
+                            <Badge className="w-fit rounded-full bg-accent text-accent-foreground">
+                              Production work
+                            </Badge>
+                          </div>
 
-                          <ul className="mb-6 list-disc space-y-2 pl-5">
+                          <ul className="mb-5 grid gap-3 lg:grid-cols-3">
                             {job.description.map((item, i) => (
-                              <li key={i} className="text-muted-foreground">
+                              <li key={i} className="rounded-[1rem] border border-border/70 bg-muted/25 px-4 py-3 text-sm leading-6 text-muted-foreground">
+                                <span className="mb-2 block text-xs font-black uppercase tracking-[0.2em] text-foreground/60">
+                                  0{i + 1}
+                                </span>
                                 {item}
                               </li>
                             ))}
                           </ul>
 
                           <div className="flex flex-wrap gap-2">
-                            {job.skills.map((skill) => (
+                            {job.skills.slice(0, 8).map((skill) => (
                               <Badge
                                 key={skill}
                                 variant="secondary"
-                                className="rounded-full"
+                                className="rounded-full font-bold"
                               >
                                 {skill}
                               </Badge>
                             ))}
+                            {job.skills.length > 8 && (
+                              <Badge variant="outline" className="rounded-full font-bold">
+                                +{job.skills.length - 8} more
+                              </Badge>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -227,7 +254,7 @@ export default function Experience() {
                   viewport={{ once: true }}
                   className="card-hover"
                 >
-                  <Card className="surface-card overflow-hidden">
+                  <Card className="overflow-hidden rounded-[1.5rem] border bg-card shadow-[0_24px_70px_-52px_rgba(15,23,42,0.45)]">
                     <CardContent className="p-0">
                       <div className="md:flex">
                         <div className="md:w-64 p-6 border-r bg-muted/30 hidden md:block">
@@ -279,7 +306,7 @@ export default function Experience() {
                             </div>
                           </div>
 
-                          <h3 className="mb-4 text-lg font-medium sm:text-xl">
+                          <h3 className="mb-4 text-2xl font-black tracking-[-0.05em] sm:text-3xl">
                             {edu.degree}
                           </h3>
                           <p className="text-muted-foreground mb-6">
@@ -287,12 +314,12 @@ export default function Experience() {
                           </p>
 
                           <div className="mb-6">
-                            <h4 className="font-medium mb-2">
+                            <h4 className="mb-2 font-black">
                               Key Achievements:
                             </h4>
-                            <ul className="list-disc pl-5 space-y-1">
+                            <ul className="space-y-2">
                               {edu.achievements.map((achievement, i) => (
-                                <li key={i} className="text-muted-foreground">
+                                <li key={i} className="rounded-[1rem] border border-border/70 bg-muted/25 px-4 py-3 text-sm leading-6 text-muted-foreground">
                                   {achievement}
                                 </li>
                               ))}
@@ -300,7 +327,7 @@ export default function Experience() {
                           </div>
 
                           <div>
-                            <h4 className="font-medium mb-2">
+                            <h4 className="mb-2 font-black">
                               Relevant Coursework:
                             </h4>
                             <div className="flex flex-wrap gap-2">
@@ -308,7 +335,7 @@ export default function Experience() {
                                 <Badge
                                   key={course}
                                   variant="secondary"
-                                  className="rounded-full"
+                                  className="rounded-full font-bold"
                                 >
                                   {course}
                                 </Badge>

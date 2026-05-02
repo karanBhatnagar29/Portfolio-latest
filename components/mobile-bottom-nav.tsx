@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Home, BriefcaseBusiness, Layers3, FolderKanban, MessageCircleMore } from "lucide-react"
+import { Home, Code2, FolderKanban, MessageCircleMore, UserRound } from "lucide-react"
 
 const mobileNavItems = [
   { name: "Home", href: "#home", icon: Home },
-  { name: "Ventures", href: "#ventures", icon: Layers3 },
-  { name: "Work", href: "#work-with-me", icon: BriefcaseBusiness },
+  { name: "About", href: "#about", icon: UserRound },
+  { name: "Skills", href: "#skills", icon: Code2 },
   { name: "Projects", href: "#projects", icon: FolderKanban },
   { name: "Contact", href: "#contact", icon: MessageCircleMore },
 ]
@@ -36,8 +36,8 @@ export default function MobileBottomNav() {
   }, [])
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-50 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 md:hidden">
-      <div className="mobile-bottom-nav mx-auto grid max-w-md grid-cols-5 gap-1 rounded-[1.8rem] p-2">
+    <nav className="fixed inset-x-0 bottom-0 z-50 px-2.5 pb-[max(0.55rem,env(safe-area-inset-bottom))] pt-2 md:hidden">
+      <div className="mobile-bottom-nav mx-auto grid max-w-md grid-cols-5 gap-1 rounded-[1.35rem] p-1.5">
         {mobileNavItems.map((item) => {
           const Icon = item.icon
 
@@ -45,13 +45,13 @@ export default function MobileBottomNav() {
             <Link
               key={item.name}
               href={item.href}
-              className={`flex min-h-[4.25rem] flex-col items-center justify-center gap-1 rounded-[1.2rem] px-1 py-2 text-center text-[0.68rem] font-semibold tracking-[0.08em] transition-all ${
+              className={`flex min-h-[3.55rem] flex-col items-center justify-center gap-1 rounded-[1rem] px-1 py-1.5 text-center text-[0.62rem] font-black uppercase tracking-[0.06em] transition-all ${
                 activeSection === item.href.slice(1)
-                  ? "bg-primary text-primary-foreground shadow-[0_12px_24px_-16px_rgba(16,185,129,0.9)]"
+                  ? "bg-foreground text-background shadow-[0_12px_24px_-16px_rgba(15,23,42,0.9)]"
                   : "text-muted-foreground hover:bg-background/70 hover:text-foreground"
               }`}
             >
-              <Icon className="h-4.5 w-4.5" />
+              <Icon className="h-4 w-4" />
               <span>{item.name}</span>
             </Link>
           )

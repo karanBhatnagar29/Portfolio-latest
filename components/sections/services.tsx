@@ -53,7 +53,7 @@ const services = [
     title: "Backend & API Development",
     description:
       "Building robust, secure RESTful APIs and server-side services using NestJS and Node.js — structured for scale and easy to maintain.",
-    technologies: ["NestJS", "Node.js", "REST APIs", "Bun.js", "TypeScript"],
+    technologies: ["NestJS", "Node.js", "REST APIs", "TypeScript"],
   },
   {
     icon: <Cloud className="h-10 w-10" />,

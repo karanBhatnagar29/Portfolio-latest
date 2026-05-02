@@ -19,7 +19,7 @@ const projects = [
     id: 13,
     title: "Stumble Market",
     description:
-      "A curated second-hand marketplace for fashion, home goods, collectibles, and trusted independent sellers. As co-founder, I helped shape the product direction and build an experience that makes sustainable shopping feel premium, modern, and trustworthy.",
+      "A curated resale marketplace for fashion, home goods, collectibles, and independent sellers. I help shape the product direction and buyer experience so sustainable shopping feels premium, modern, and trustworthy.",
     image: "https://image.thum.io/get/width/1400/https://www.stumble.market/",
     tags: ["Marketplace", "Next.js", "E-commerce", "Product Strategy", "Brand UX"],
     demo: "https://www.stumble.market/",
@@ -33,14 +33,29 @@ const projects = [
     stats: [
       { label: "Role", value: "Co-Founder" },
       { label: "Focus", value: "Marketplace UX" },
-      { label: "Positioning", value: "Verified resale" },
+      { label: "Signal", value: "Verified resale" },
     ],
+  },
+  {
+    id: 14,
+    title: "Movaraa",
+    description:
+      "A movement and wellness web product with a clean service flow, live class positioning, and warm editorial visuals. Built as a polished full-stack experience rather than a plain brochure site.",
+    image: "https://image.thum.io/get/width/1200/https://movaraa.vercel.app/",
+    tags: ["Next.js", "Supabase", "Full-stack", "Vercel", "Product UX"],
+    demo: "https://movaraa.vercel.app/",
+    github: "",
+    category: "fullstack",
+    featured: true,
+    platform: "web",
+    role: "Full-Stack Developer",
+    thumbnailVariant: "movaraa",
   },
   {
     id: 10,
     title: "ZestyCrops – Spices E-Commerce",
     description:
-      "A full-stack e-commerce platform for premium spices. Built with Next.js and NestJS, featuring product listings, cart, secure checkout, order management, and an admin dashboard. Deployed on AWS EC2 with CI/CD pipelines.",
+      "A premium spices e-commerce platform with product browsing, cart, checkout, order management, and an admin dashboard. Built with Next.js, NestJS, PostgreSQL, and AWS deployment workflows.",
     image:
       "https://res.cloudinary.com/dkln9vlws/image/upload/v1771144910/banners/j8eoj8wnfunwhfjwzwuw.png",
     tags: ["Next.js", "NestJS", "AWS EC2", "CI/CD", "PostgreSQL"],
@@ -55,7 +70,7 @@ const projects = [
     id: 11,
     title: "MegaRail – Western Railways ID Card Generator",
     description:
-      "An employee ID card generator built for Western Railways. Allows bulk generation and printing of official ID cards with custom data, QR codes, and branded templates. Deployed on Vercel.",
+      "An employee ID card generator for Western Railways with bulk card creation, QR codes, branded templates, and print-ready output. Built as a fast internal tool and deployed on Vercel.",
     image: "https://image.thum.io/get/width/1200/https://megarail.vercel.app/",
     tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
     demo: "https://megarail.vercel.app/",
@@ -69,7 +84,7 @@ const projects = [
     id: 12,
     title: "Junto",
     description:
-      "A trust-based social coordination app built to help people discover, join, host, and repeat high-intent local plans. Junto is designed around reliability, gatekept access, contextual coordination, and real-world participation instead of passive attention loops.",
+      "A trust-based social coordination app for discovering, joining, hosting, and repeating high-intent local plans. Junto is designed around reliability, gated access, contextual coordination, and real-world participation.",
     image: "/junto/junto-intro.png",
     tags: ["React Native", "Social App", "Trust Systems", "Product Strategy", "Founder"],
     demo: "",
@@ -81,6 +96,47 @@ const projects = [
     imageMode: "cover",
   },
 ];
+
+function MovaraaPreview() {
+  return (
+    <div className="relative h-full w-full overflow-hidden bg-[#fff8ed] p-4 text-[#24140d]">
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(36,20,13,0.04)_1px,transparent_1px),linear-gradient(rgba(36,20,13,0.04)_1px,transparent_1px)] bg-[size:22px_22px]" />
+      <div className="relative flex h-full flex-col justify-between rounded-[1.4rem] border border-[#ead9c6] bg-[#fff8ed]/90 p-4 shadow-[0_24px_70px_-45px_rgba(255,79,31,0.8)]">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ff5122] text-lg font-black text-white">
+              ~
+            </div>
+            <p className="text-xl font-black tracking-[-0.05em]">Movaraa</p>
+          </div>
+          <span className="rounded-full bg-[#24140d] px-3 py-1.5 text-xs font-bold text-white">
+            Live
+          </span>
+        </div>
+
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.26em] text-[#7c6b5c]">
+            Movement platform
+          </p>
+          <h4 className="mt-3 text-4xl font-black leading-[0.9] tracking-[-0.06em]">
+            Move with grace
+            <span className="block italic text-[#ff5122]">Explore Services</span>
+          </h4>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2 border-t border-[#ead9c6] pt-3">
+          {["5+ Programs", "Live + Hybrid", "IST Friendly"].map((item) => (
+            <div key={item} className="rounded-xl bg-white/70 p-2">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#7c6b5c]">
+                {item}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Projects() {
   const spotlightProject = projects[0];
@@ -94,16 +150,35 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-12 text-center md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold section-title mx-auto">
-            My Portfolio
+          <Badge className="mb-4 rounded-full bg-foreground px-4 py-2 text-background">
+            Selected Work
+          </Badge>
+          <h2 className="mx-auto max-w-4xl text-3xl font-black leading-[0.95] tracking-[-0.06em] md:text-6xl">
+            Less case-study overload.
+            <span className="block italic gradient-text">More proof of taste.</span>
           </h2>
-          <p className="mt-8 text-muted-foreground max-w-2xl mx-auto">
-            Founder case studies and selected builds across social products,
-            marketplaces, internal tools, and full-stack platforms.
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-muted-foreground md:text-lg md:leading-7">
+            Founder ventures and shipped products across marketplaces, movement
+            platforms, internal tools, social apps, and full-stack commerce.
           </p>
         </motion.div>
+
+        <div className="mobile-rail mb-8 md:flex md:flex-wrap md:justify-center md:overflow-visible">
+          {["equal cards", "live products", "no fake case-study noise", "taste receipts"].map((item, index) => (
+            <span
+              key={item}
+              className={`mobile-rail-card rounded-full border px-4 py-2 text-xs font-black uppercase tracking-[0.18em] md:min-w-0 ${
+                index % 2 === 0
+                  ? "border-foreground bg-foreground text-background"
+                  : "border-accent bg-accent text-accent-foreground"
+              }`}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 28 }}
@@ -259,7 +334,7 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {secondaryProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -269,9 +344,11 @@ export default function Projects() {
               viewport={{ once: true }}
               className="card-hover"
             >
-              <Card className="overflow-hidden h-full flex flex-col border bg-card">
-                <div className="relative overflow-hidden h-48 group">
-                  {project.platform === "mobile" &&
+              <Card className="group h-full overflow-hidden rounded-[1.35rem] border bg-card shadow-[0_18px_55px_-42px_rgba(15,23,42,0.35)]">
+                <div className="relative h-48 overflow-hidden group">
+                  {"thumbnailVariant" in project && project.thumbnailVariant === "movaraa" ? (
+                    <MovaraaPreview />
+                  ) : project.platform === "mobile" &&
                   project.imageMode !== "cover" ? (
                     <div className="w-full h-full flex items-center justify-center bg-[#20232a]">
                       <img
@@ -315,16 +392,16 @@ export default function Projects() {
                     </Badge>
                   )}
                 </div>
-                <CardContent className="flex-grow p-6">
+                <CardContent className="flex-grow p-5 md:p-6">
                   <div className="mb-3 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <h3 className="text-xl font-medium">{project.title}</h3>
+                    <h3 className="text-xl font-black tracking-[-0.05em]">{project.title}</h3>
                     {project.role && (
                       <span className="rounded-full bg-muted px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                         {project.role}
                       </span>
                     )}
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4">
+                  <p className="mb-4 text-sm leading-6 text-muted-foreground">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
