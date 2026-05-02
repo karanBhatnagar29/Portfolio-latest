@@ -362,8 +362,13 @@ h6 {
 
 @media (max-width: 767px) {
   html {
-    scroll-padding-top: 4.75rem;
-    scroll-padding-bottom: 6rem;
+    scroll-padding-top: 4.35rem;
+    scroll-padding-bottom: 5.25rem;
+  }
+
+  .container {
+    padding-left: 0.65rem !important;
+    padding-right: 0.65rem !important;
   }
 
   body {
@@ -389,8 +394,8 @@ h6 {
   }
 
   .mobile-section-shell {
-    margin-top: 0.7rem;
-    border-radius: 1.35rem;
+    margin-top: 0.55rem;
+    border-radius: 1.15rem;
     background:
       linear-gradient(180deg, hsl(var(--background) / 0.96), hsl(var(--background) / 0.88)),
       linear-gradient(135deg, hsl(var(--primary) / 0.05), transparent 48%);
@@ -406,7 +411,7 @@ h6 {
   }
 
   .mobile-rail-card {
-    min-width: 78%;
+    min-width: 74%;
   }
 }
 

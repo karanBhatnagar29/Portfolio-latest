@@ -9,26 +9,20 @@ import BackToTop from "@/components/back-to-top"
 export default function Home() {
   return (
     <>
-      <div className="container mx-auto px-4">
-        <Hero />
-        <div className="mobile-section-shell overflow-hidden md:contents">
-          <About />
-        </div>
+      <Hero />
+      <div className="mobile-section-shell mx-1.5 overflow-hidden md:mx-0 md:contents">
+        <About />
       </div>
-      <div className="container mx-auto px-4">
-        <div className="mobile-section-shell overflow-hidden md:contents">
-          <Skills />
-        </div>
+      <div className="mobile-section-shell mx-1.5 overflow-hidden md:mx-0 md:contents">
+        <Skills />
       </div>
-      <div className="container mx-auto px-4">
-        <div className="mobile-section-shell overflow-hidden md:contents">
-          <Projects />
-        </div>
+      <div className="mobile-section-shell mx-1.5 overflow-hidden md:mx-0 md:contents">
+        <Projects />
       </div>
-      <div className="mobile-section-shell mx-2 md:mx-0 md:contents">
+      <div className="mobile-section-shell mx-1.5 md:mx-0 md:contents">
         <Experience />
       </div>
-      <div className="mobile-section-shell mx-2 md:mx-0 md:contents">
+      <div className="mobile-section-shell mx-1.5 md:mx-0 md:contents">
         <Contact />
       </div>
       <BackToTop />

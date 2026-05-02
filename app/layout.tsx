@@ -39,7 +39,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen flex-col bg-background transition-colors duration-300">
             <Header />
-            <main className="flex-1 pb-28 md:pb-0">{children}</main>
+            <main className="flex-1 pb-24 md:pb-0">{children}</main>
             <MobileBottomNav />
             <Footer />
             <Toaster />
